@@ -1,0 +1,12 @@
+#     a b c d e f g h
+#  
+# 8   T C F R r F C T
+# 7   p p p p p p p p
+# 6   * * * * * * * * 
+# 5   * * * * * * * *
+# 4   * * * * * * * *
+# 3   * * * * * * * *
+# 2   p p p p p p p p 
+# 1   T C F r R F C T
+
+#On fait comment le plateau ? 
