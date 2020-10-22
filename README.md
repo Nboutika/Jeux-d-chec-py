@@ -13,3 +13,7 @@ reine = tour+fou
 Les pions ne peuvent passer au dessus des autres pions
 
 Deux équipes Blanc Noir se joue tour par tour
+
+---
+
+Pendant les vacances ==> Plateau
