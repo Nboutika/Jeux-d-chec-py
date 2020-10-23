@@ -24,18 +24,12 @@ def Jeux() :
                     if commandeTableau[i]<1 or commandeTableau[i]>8 :
                         Valable=False
 
-
-
         ligne=commandeTableau[0]-1
         colonne=commandeTableau[1]-1
         ligneArrive=commandeTableau[2]-1                #On établit les valeurs en input dans des variables
         colonneArrive=commandeTableau[3]-1
 
-"""
-On test qu'elle est la piéce sélectionné au départ et on test si le mouvement demandé est
-possible en fonction de pieces.py
-"""
-        if boardCoord[ligne][colonne] == "-" :
+        if boardCoord[ligne][colonne] == "-" :          #On cherche qu'elle est le type de pièces séléctionné et si le déplacement est possible ou non
             print("il n'y a aucune pièce")
         else:
             if ligne==ligneArrive and colonne==colonneArrive:
