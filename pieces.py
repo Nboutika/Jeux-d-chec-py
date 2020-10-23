@@ -1,3 +1,4 @@
+
 """
 Initialisation des pièces
 La tour : Elle se déplace en ligne et colonne([+x][+0] OU [+0][+x])
@@ -8,16 +9,17 @@ La dame : Elle a tous les mouvements des autres pièces sauf le cavalier
 Le roi : comme la dame mais de 1 en 1
 Pion : les noirs se déplace en ligne [+x][0]
 Pion blanc : [-x][0]
-"""
+
 # l = ligne départ
 # c = colonne départ
 # la, colonneArrive = ligne/colonne arrivé
-"""
+
 boardCoord = []
 ligne = None
 colonne = None
 colonneArrive = None
-ligneArrive = None"""
+ligneArrive = None
+"""
 
 def vide(boardCoord,  ligne, colonne, ligneArrive, colonneArrive):
     return boardCoord[ligneArrive][colonneArrive] == "-"
