@@ -36,6 +36,13 @@ class BoardCoord:
 """
 
 b = BoardCoord()
-l=int(input("Entrer un entier de la ligne désirée  inférieur a 8 : "))
-c=int(input("Entrer un entier de la colonne désirée  inférieur a 8 : "))
+
+l=int(input("Veuillez saisir un entier entre [0,7] pour la ligne désirée : "))
+while l<0 or l>7 :
+    l=int(input("Nombre incorrect , veuillez ressaisir un entier entre [0,7] pour la ligne désirée : "))
+
+c=int(input("Veuillez saisir un entier entre [0,7] pour  la colonne désirée : "))
+while c<0 or c>7 : 
+    c=int(input("Nombre incorrect , veuillez ressaisir un entier entre [0,7] pour  la colonne désirée : "))
+
 print(b.BoardCoord[l][c])
