@@ -42,94 +42,102 @@ def Jeux() :
                 print("Il faut forcément faire un mouvement")
             else:               #On cherche qu'elle est le type de pièces séléctionné et si le déplacement est possible ou non
                 if boardCoord[ligne][colonne]== "♜":
-                    print("tour blanche")
+                    print("vous avez séléctionné la tour blanche")
                     if tour(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        print("mouvement possible")
+                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
+                        boardCoord[ligne][colonne]="-"
                     else:
-                        print("mouvement pas possible")
+                        print("Déplacement de la pièce impossible veuillez faire autre chose")
 
 
                 if boardCoord[ligne][colonne]== "♞":
-                    print("cavalier blanc")
+                    print("vous avez séléctionné  le cavalier blanc")
                     if cavalier(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        print("mouvement possible")
+                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
+                        boardCoord[ligne][colonne]="-"
                     else:
-                        print("mouvement pas possible")
+                        print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♝":
-                    print("fou blanc")
+                    print("vous avez séléctionné  le fou blanc")
                     if fou(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        print("mouvement possible")
+                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
+                        boardCoord[ligne][colonne]="-"
                     else:
-                        print("mouvement pas possible")        
+                        print("Déplacement de la pièce impossible veuillez faire autre chose")        
 
                 if boardCoord[ligne][colonne]== "♛":
-                    print("reine blanc")
+                    print("vous avez séléctionné  la reine blanc")
                     if dame(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        print("mouvement possible")
+                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
+                        boardCoord[ligne][colonne]="-"
                     else:
-                        print("mouvement pas possible")
+                        print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♚":
-                    print("roi blanc")
+                    print("vous avez séléctionné  le roi blanc")
                     if roi(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        print("mouvement possible")
+                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
+                        boardCoord[ligne][colonne]="-"
                     else:
-                        print("mouvement pas possible")
+                        print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♟︎":
-                    print("pion blanc ")
+                    print("vous avez séléctionné  le pion blanc ")
                     if pionNoir(boardCoord,ligne,colonne,ligneArrive,colonneArrive) : #pas encore de fonction pion blanc
-                        print("mouvement possible")
+                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
+                        boardCoord[ligne][colonne]="-"
                     else:
-                        print("mouvement pas possible")
+                        print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♖":
-                    print("tour noir")
+                    print("vous avez séléctionné  la tour noir")
                     if tour(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        print("mouvement possible")
+                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
+                        boardCoord[ligne][colonne]="-"
                     else:
-                        print("mouvement pas possible")
+                        print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♘":
-                    print("cavalier noir")
+                    print("vous avez séléctionné  le cavalier noir")
                     if cavalier(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        print("mouvement possible")
+                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
+                        boardCoord[ligne][colonne]="-"
                     else:
-                        print("mouvement pas possible")
+                        print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♗":
-                    print("fou noir")
+                    print("vous avez séléctionné  le fou noir")
                     if fou(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        print("mouvement possible")
+                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
+                        boardCoord[ligne][colonne]="-"
                     else:
-                        print("mouvement pas possible")
+                        print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♕":
-                    print("reine noir")
+                    print("vous avez séléctionné  la reine noir")
                     if dame(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        print("mouvement possible")
+                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
+                        boardCoord[ligne][colonne]="-"
                     else:
-                        print("mouvement pas possible")
+                        print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♔":
-                    print("roi noir")
+                    print("vous avez séléctionné  le roi noir")
                     if roi(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        print("mouvement possible")
+                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
+                        boardCoord[ligne][colonne]="-"
                     else:
-                        print("mouvement pas possible")
+                        print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♙":
-                    print("pion noir ")
+                    print("vous avez séléctionné  le pion noir ")
                     if pionNoir(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        print("mouvement possible")
+                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
+                        boardCoord[ligne][colonne]="-"
                     else:
-                        print("mouvement pas possible")
+                        print("Déplacement de la pièce impossible veuillez faire autre chose")
 
-
-
-                boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
-                boardCoord[ligne][colonne]="-"
 
             for l in range(8) :                     #On affiche le plateau après le coup
                 L=l+1
@@ -154,3 +162,4 @@ def Jeux() :
         print("Le joueur blanc a gagné")
     else:
         print("Le joueur noir a gagné")
+
