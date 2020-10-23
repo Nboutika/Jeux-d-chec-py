@@ -30,11 +30,17 @@ def vide(boardCoord, ligneArrive, colonneArrive):
 
 
 def pionNoir(boardCoord,  ligne, colonne, ligneArrive, colonneArrive):
-    return (colonne == colonneArrive and ligneArrive == ligne + 1) and vide(boardCoord, ligneArrive, colonneArrive)
+    if ligne == 1:
+        return (colonne == colonneArrive and ligneArrive == ligne + 1) or (colonne == colonneArrive and ligneArrive == ligne + 2) and vide(boardCoord, ligneArrive, colonneArrive)
+    else:
+        return (colonne == colonneArrive and ligneArrive == ligne + 1) and vide(boardCoord, ligneArrive, colonneArrive)
 
 
 def pionBlanc(boardCoord,  ligne, colonne, ligneArrive, colonneArrive):
-    return (colonne == colonneArrive and ligneArrive == ligne - 1) and vide(boardCoord, ligneArrive, colonneArrive)
+    if ligne == 6:
+        return (colonne == colonneArrive and ligneArrive == ligne - 1) or (colonne == colonneArrive and ligneArrive == ligne - 2) and vide(boardCoord, ligneArrive, colonneArrive)
+    else:
+        return (colonne == colonneArrive and ligneArrive == ligne - 1) and vide(boardCoord, ligneArrive, colonneArrive)
 
 
 def tour(boardCoord,  ligne, colonne, ligneArrive, colonneArrive):
@@ -46,7 +52,9 @@ def cavalier(boardCoord,  ligne, colonne, ligneArrive, colonneArrive):
 
 
 def fou(boardCoord,  ligne, colonne, ligneArrive, colonneArrive):
-    return colonneArrive == ligneArrive and vide(boardCoord, ligneArrive, colonneArrive)
+    diffColonne = colonneArrive - colonne
+    diffLigne = ligneArrive - ligne
+    return abs(diffColonne) == abs(diffLigne) and vide(boardCoord, ligneArrive, colonneArrive)
 
 
 def dame(boardCoord,  ligne, colonne, ligneArrive, colonneArrive):
