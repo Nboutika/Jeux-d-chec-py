@@ -13,17 +13,12 @@ Pion blanc : [-x][0]
 # l = ligne départ
 # c = colonne départ
 # la, colonneArrive = ligne/colonne arrivé
-
 """
 boardCoord = []
 ligne = None
 colonne = None
 colonneArrive = None
 ligneArrive = None"""
-
-
-def vide(boardCoord,  ligne, colonne, ligneArrive, colonneArrive):
-    return boardCoord[ligneArrive][colonneArrive] == "-"
 
 
 def pionNoir(boardCoord,  ligne, colonne, ligneArrive, colonneArrive):
