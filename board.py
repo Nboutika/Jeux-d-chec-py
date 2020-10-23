@@ -58,9 +58,10 @@ ca=int(input("Veuillez saisir un entier entre [0,7] pour  la nouvelle colonne d�
 while ca<0 or ca>7 : 
     ca=int(input("Nombre incorrect , veuillez ressaisir un entier entre [0,7] pour  la nouvelle colonne désirée : "))
     
-print(b.BoardCoord[l][c])
-b.BoardCoord[la][ca]=b.BoardCoord[l][c]
-b.BoardCoord[l][c]="-"
+
+if b.BoardCoord[l][c] != b.BoardCoord[la][ca] : 
+    b.BoardCoord[la][ca]=b.BoardCoord[l][c]
+    b.BoardCoord[l][c]="-"
 
 for ligne in range(8) :
     print(ligne," ",end="")
