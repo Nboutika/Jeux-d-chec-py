@@ -6,35 +6,41 @@ Utilise le tableau a double entrée de board.py
 Utilise pieces.py pour savoir si le mouvement est possible
 """
 
+def commande():      #On test si la commande est correcte sinon on en demande une nouvelle
+    Valable=False               
+    while Valable == False :           
+        Valable=True
+        print("Pour jouez utiliser |ligne de la pièce| |colonne de la pièce| |ligne d'arrivé| |colonne d'arrivé|")
+        coordonnées = input("Jouez votre coup : ").split(" ")
+        commandeTableau = []  
+        for i in coordonnées:              
+            if i != "":
+                commandeTableau.append(int(i))
+            for i in range(len(commandeTableau)) :
+                if commandeTableau[i]<1 or commandeTableau[i]>8 :
+                    Valable=False
+    
+    ligne=commandeTableau[0]-1
+    colonne=commandeTableau[1]-1
+    ligneArrive=commandeTableau[2]-1                #On établit les valeurs en input dans des variables
+    colonneArrive=commandeTableau[3]-1
+
+    return(ligne,colonne,ligneArrive,colonneArrive)
+
+
 def Jeux() :
     roiNoir=True
     roiBlanc=True
     while roiNoir and roiBlanc == True :    #On fait tourner le jeux tant que les deux roix sont présent sur le plateau 
 
-        Valable=False                       
-        while Valable == False :            #On test si la commande est correcte sinon on en demande une nouvelle
-            Valable=True
-            print("Pour jouez utiliser |ligne de la pièce| |colonne de la pièce| |ligne d'arrivé| |colonne d'arrivé|")
-            commande = input("Jouez votre coup : ").split(" ")
-            commandeTableau = []
-            for i in commande:              
-                if i != "":
-                    commandeTableau.append(int(i))
-                for i in range(len(commandeTableau)) :
-                    if commandeTableau[i]<1 or commandeTableau[i]>8 :
-                        Valable=False
+        ligne,colonne,ligneArrive,colonneArrive = commande()
 
-        ligne=commandeTableau[0]-1
-        colonne=commandeTableau[1]-1
-        ligneArrive=commandeTableau[2]-1                #On établit les valeurs en input dans des variables
-        colonneArrive=commandeTableau[3]-1
-
-        if boardCoord[ligne][colonne] == "-" :          #On cherche qu'elle est le type de pièces séléctionné et si le déplacement est possible ou non
+        if boardCoord[ligne][colonne] == "-" :      #On regarde si c'est une pièce ou non       
             print("il n'y a aucune pièce")
         else:
-            if ligne==ligneArrive and colonne==colonneArrive:
+            if ligne==ligneArrive and colonne==colonneArrive:       #On regarde si il y'a un déplacement ou non 
                 print("Il faut forcément faire un mouvement")
-            else:
+            else:               #On cherche qu'elle est le type de pièces séléctionné et si le déplacement est possible ou non
                 if boardCoord[ligne][colonne]== "♜":
                     print("tour blanche")
                     if tour(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
