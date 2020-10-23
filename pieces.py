@@ -10,27 +10,39 @@ Le roi : comme la dame mais de 1 en 1
 Pion : les noirs se déplace en ligne [+x][0]
 Pion blanc : [-x][0]
 """
+# l = ligne départ
+# c = colonne départ
+# la, colonneArrive = ligne/colonne arrivé
+boardCoord = []
+ligne = None
+colonne = None
+colonneArrive = None
+ligneArrive = None
 
 
-def Pion():
-    pass
+def vide(boardCoord, ligneArrive, colonneArrive):
+    return boardCoord[ligneArrive][colonneArrive] == "-"
 
 
-def Tour():
-    pass
+def pionNoir(boardCoord, ligneArrive, colonneArrive):
+    return colonne == colonneArrive and ligneArrive == ligne + 1
 
 
-def Cavalier():
-    pass
+def tour(boardCoord, ligneArrive, colonneArrive):
+    return ligne == ligneArrive or colonne == colonneArrive and vide(ligneArrive, colonneArrive)
 
 
-def Fou():
-    pass
+def cavalier(boardCoord, ligneArrive, colonneArrive):
+    return (ligne - 2 <= ligneArrive <= ligne + 2 and colonne - 1 <= colonneArrive <= colonne + 1) or (colonne - 2 <= colonneArrive <= colonne + 2 and ligne - 1 <= ligneArrive <= ligne + 1)
 
 
-def Dame():
-    pass
+def fou(boardCoord, ligneArrive, colonneArrive):
+    return colonneArrive == ligneArrive
 
 
-def Roi():
-    pass
+def dame(boardCoord, ligneArrive, colonneArrive):
+    return fou(boardCoord, ligneArrive, colonneArrive) or tour(boardCoord, ligneArrive, colonneArrive)
+
+
+def roi(boardCoord, ligneArrive, colonneArrive):
+    return (ligne - 1 <= ligneArrive <= ligne + 1) and (colonne - 1 <= colonne <= colonne + 1)
