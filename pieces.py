@@ -13,11 +13,13 @@ Pion blanc : [-x][0]
 # l = ligne départ
 # c = colonne départ
 # la, colonneArrive = ligne/colonne arrivé
+"""
 boardCoord = []
 ligne = None
 colonne = None
 colonneArrive = None
 ligneArrive = None
+"""
 
 
 def vide(boardCoord, ligneArrive, colonneArrive):
