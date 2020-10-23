@@ -1,0 +1,3 @@
+"""
+Initialisation des pièces
+"""
