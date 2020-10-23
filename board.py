@@ -1,33 +1,41 @@
-#     a b c d e f g h
-#  
-# 8   T C F R r F C T
-# 7   p p p p p p p p
-# 6   * * * * * * * * 
-# 5   * * * * * * * *
-# 4   * * * * * * * *
-# 3   * * * * * * * *
-# 2   p p p p p p p p 
-# 1   T C F r R F C T
-
-#On fait comment le plateau ? 
-#Quel code ? 
 
 
+"""
+Utilisation d'unicode pour les pièces (bien vérifier si l'encodage est l'UTF-8)
+Chercher une solution pour les cases vides qui est agréable au regard pour pas que l'on se perde dans l'échiquier
+(éviter le caractère unicode du point central par exemple qui visiblement n'est pas adapté)
+Choix des coordonnées : Tableau[ligne][colonne] /!\ Attention ici en python l'index commence à 0 et non pas à 1 ! /!\
+"""
 
 
-class BoardCoord :
+class BoardCoord:
 
-        "Le plateau d'echec"
+    BoardCoord = [
+        ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜'],
+        ['♟︎', '♟︎', '♟︎', '♟︎', '♟︎', '♟︎', '♟︎', '♟︎'],
+        ["--", "--", "--", "--", "--", "--", "--", "--"],
+        ["--", "--", "--", "--", "--", "--", "--", "--"],
+        ["--", "--", "--", "--", "--", "--", "--", "--"],
+        ["--", "--", "--", "--", "--", "--", "--", "--"],
+        ['♙', '♙', '♙', '♙', '♙', '♙', '♙', '♙'],
+        ['♖', '♘', '♗', '♕', '♔', '♗', '♘', '♖'],
+    ]
 
-    BoardCoord=[
-        'a8','b8','c8','d8','e8','f8','g8','h8',
-        'a7','b7','c7','d7','e7','f7','g7','h7',
-        'a6','b6','c6','d6','e6','f6','g6','h6',
-        'a5','b5','c5','d5','e5','f5','g5','h5',
-        'a4','b4','c4','d4','e4','f4','g4','h4',
-        'a3','b3','c3','d3','e3','f3','g3','h3',
-        'a2','b2','c2','d2','e2','f2','g2','h2',
-        'a1','b1','c1','d1','e1','f1','g1','h1',
-        ]
+"""
+    Représentation des coordonnées du plateau : 
+    0  1 2  3 4  5 6 7 
+---------------------
+0|  ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
+1|  ♟︎ ♟︎ ♟︎ ♟︎ ♟︎ ♟︎ ♟︎ ♟︎
+2|  -  - -  - - -  - -
+3|  -  - -  - - -  - -
+4|  -  - -  - - -  - -
+5|  -  - -  - - -  - -
+6|  ♙ ♙ ♙ ♙ ♙ ♙ ♙ ♙
+7|  ♖ ♘ ♗ ♕ ♔ ♗ ♘ ♖
+"""
 
-print(BoardCoord)
+b = BoardCoord()
+l=int(input("Entrer un entier de la ligne désirée  inférieur a 8 : "))
+c=int(input("Entrer un entier de la colonne désirée  inférieur a 8 : "))
+print(b.BoardCoord[l][c])
