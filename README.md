@@ -13,7 +13,13 @@ reine = tour+fou \
 Les pions ne peuvent passer au dessus des autres pions \
 
 Deux équipes Blanc Noir se joue tour par tour \
-on est les meilleurs \
+
+Les règles utilisées :
+
+On gagne quand le roi adverse est manger. 
+Les pions lors de leurs premier tour peuvent avancer de 2 cases.
+si un pion arrive au bout du plateau il devient une tour.
+"Si ta d'autres idées ajoute"
 
 ---
 
