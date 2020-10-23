@@ -13,36 +13,38 @@ Pion blanc : [-x][0]
 # l = ligne départ
 # c = colonne départ
 # la, colonneArrive = ligne/colonne arrivé
+
+"""
 boardCoord = []
 ligne = None
 colonne = None
 colonneArrive = None
-ligneArrive = None
+ligneArrive = None"""
 
 
-def vide(boardCoord, ligneArrive, colonneArrive):
+def vide(boardCoord,  ligne, colonne, ligneArrive, colonneArrive):
     return boardCoord[ligneArrive][colonneArrive] == "-"
 
 
-def pionNoir(boardCoord, ligneArrive, colonneArrive):
-    return colonne == colonneArrive and ligneArrive == ligne + 1
+def pionNoir(boardCoord,  ligne, colonne, ligneArrive, colonneArrive):
+    return (colonne == colonneArrive and ligneArrive == ligne + 1) and vide(boardCoord,  ligne, colonne, ligneArrive, colonneArrive)
 
 
-def tour(boardCoord, ligneArrive, colonneArrive):
-    return ligne == ligneArrive or colonne == colonneArrive and vide(ligneArrive, colonneArrive)
+def tour(boardCoord,  ligne, colonne, ligneArrive, colonneArrive):
+    return ligne == ligneArrive or colonne == colonneArrive and vide(boardCoord,  ligne, colonne, ligneArrive, colonneArrive)
 
 
-def cavalier(boardCoord, ligneArrive, colonneArrive):
-    return (ligne - 2 <= ligneArrive <= ligne + 2 and colonne - 1 <= colonneArrive <= colonne + 1) or (colonne - 2 <= colonneArrive <= colonne + 2 and ligne - 1 <= ligneArrive <= ligne + 1)
+def cavalier(boardCoord,  ligne, colonne, ligneArrive, colonneArrive):
+    return (ligne - 2 <= ligneArrive <= ligne + 2 and colonne - 1 <= colonneArrive <= colonne + 1) or (colonne - 2 <= colonneArrive <= colonne + 2 and ligne - 1 <= ligneArrive <= ligne + 1) and vide(boardCoord,  ligne, colonne, ligneArrive, colonneArrive)
 
 
-def fou(boardCoord, ligneArrive, colonneArrive):
-    return colonneArrive == ligneArrive
+def fou(boardCoord,  ligne, colonne, ligneArrive, colonneArrive):
+    return colonneArrive == ligneArrive and vide(boardCoord,  ligne, colonne, ligneArrive, colonneArrive)
 
 
-def dame(boardCoord, ligneArrive, colonneArrive):
-    return fou(boardCoord, ligneArrive, colonneArrive) or tour(boardCoord, ligneArrive, colonneArrive)
+def dame(boardCoord,  ligne, colonne, ligneArrive, colonneArrive):
+    return (fou(boardCoord,  ligne, colonne, ligneArrive, colonneArrive) or tour(boardCoord,  ligne, colonne, ligneArrive, colonneArrive)) and vide(boardCoord,  ligne, colonne, ligneArrive, colonneArrive)
 
 
-def roi(boardCoord, ligneArrive, colonneArrive):
-    return (ligne - 1 <= ligneArrive <= ligne + 1) and (colonne - 1 <= colonne <= colonne + 1)
+def roi(boardCoord,  ligne, colonne, ligneArrive, colonneArrive):
+    return ((ligne - 1 <= ligneArrive <= ligne + 1) and (colonne - 1 <= colonne <= colonne + 1)) and vide(boardCoord,  ligne, colonne, ligneArrive, colonneArrive)
