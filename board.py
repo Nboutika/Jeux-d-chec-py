@@ -18,18 +18,18 @@ Choix des coordonnées : Tableau[ligne][colonne] /!\ Attention ici en python l'i
 8|  ♖ ♘ ♗ ♕ ♔ ♗ ♘ ♖
 """
 
-nt='♖'
-nc='♘'
-nf='♗'
-nr='♔'
-nd='♕'
-np='♙'
-bt='♜'
-bc='♞'
-bf='♝'
-br='♚'
-bd='♛'
-bp='♟︎'
+nt='♜'
+nc='♞'
+nf='♝'
+nr='♚'
+nd='♛'
+np='♟︎'
+bt='♖'
+bc='♘'
+bf='♗'
+br='♔'
+bd='♕'
+bp='♙'
 
 boardCoord = [
         [ nt , nc , nf , nd , nr , nf , nc , nt ],
