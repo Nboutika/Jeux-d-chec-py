@@ -8,7 +8,6 @@ engine.py contiendra la trame du jeux \
 To do list :
 
 Tester si les mouvements sont tous fonctionnel 
-Régler problème si caractére pas numérique dans fonction commande / engine.py ne pas quitter le jeux mais demander de nouvelle commande \
 faire le système d'élimination des joueurs quand on passe dessus mais impossible si dans son équipe 
 faire le système de jeux tour par tour 
 

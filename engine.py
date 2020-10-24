@@ -13,25 +13,35 @@ ligne colonne ligneArrive colonneArrive et renvoie ses variables
 Détecte si les valeurs des coordonnés sont dans le tableau sinon en demande de nouvelle
 """
 def commande():      
-    Valable=False               
-    while Valable == False :           
-        Valable=True
-        print("Pour jouez utiliser |ligne de la pièce| |colonne de la pièce| |ligne d'arrivé| |colonne d'arrivé|")
-        coordonnées = input("Jouez votre coup : ").split(" ")
-        commandeTableau = []  
-        for i in coordonnées:              
-            if i != "":
-                commandeTableau.append(int(i))
-            for i in range(len(commandeTableau)) :
-                if commandeTableau[i]<1 or commandeTableau[i]>8 :
-                    Valable=False
-    
-    ligne=commandeTableau[0]-1
-    colonne=commandeTableau[1]-1
-    ligneArrive=commandeTableau[2]-1               
-    colonneArrive=commandeTableau[3]-1
+    while True:
+        try:
+            Valable=False               
+            while Valable == False :           
+                Valable=True
+                print("Pour jouez utiliser |ligne de la pièce| |colonne de la pièce| |ligne d'arrivé| |colonne d'arrivé|")
+                coordonnées = input("Jouez votre coup : ").split(" ")
+                commandeTableau = []  
+                for i in coordonnées:              
+                    if i != "":
+                        commandeTableau.append(int(i))
+                    for i in range(len(commandeTableau)) :
+                        if commandeTableau[i]<1 or commandeTableau[i]>8 :
+                            Valable=False
 
-    return(ligne,colonne,ligneArrive,colonneArrive)
+            ligne=commandeTableau[0]-1
+            colonne=commandeTableau[1]-1
+            ligneArrive=commandeTableau[2]-1               
+            colonneArrive=commandeTableau[3]-1
+
+            return(ligne,colonne,ligneArrive,colonneArrive)
+
+            break
+        except ValueError:
+            print("Ce n'est pas un nombre réessaye")
+
+        except IndexError:
+            print("Il faut 4 arguments")
+
 """
 Fonction Deplacement permet de déplacer les coordonnées séléctionnés dans le tableau et met a son 
 ancienne position le caractére vide "-"
