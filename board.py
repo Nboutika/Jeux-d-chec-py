@@ -16,15 +16,44 @@ Choix des coordonnées : Tableau[ligne][colonne] /!\ Attention ici en python l'i
 7|  ♙ ♙ ♙ ♙ ♙ ♙ ♙ ♙
 8|  ♖ ♘ ♗ ♕ ♔ ♗ ♘ ♖
 """
+
+nt = '♜'
+nc = '♞'
+nf = '♝'
+nr = '♚'
+nd = '♛'
+np = '♟︎'
+bt = '♖'
+bc = '♘'
+bf = '♗'
+br = '♔'
+bd = '♕'
+bp = '♙'
+
+pieceBlanc = [bp, bt, bf, bc, bd, br]
+pieceNoir = [np, nt, nf, nc, nd, nr]
+
 boardCoord = [
-    ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜'],
-    ['♟︎', '♟︎', '♟︎', '♟︎', '♟︎', '♟︎', '♟︎', '♟︎'],
+    [nt, nc, nf, nd, nr, nf, nc, nt],
+    [np, np, np, np, np, np, np, np],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
-    ['♙', '♙', '♙', '♙', '♙', '♙', '♙', '♙'],
-    ['♖', '♘', '♗', '♕', '♔', '♗', '♘', '♖'],
+    [bp, bp, bp, bp, bp, bp, bp, bp],
+    [bt, bc, bf, bd, br, bf, bc, bt],
 ]
 
-# Tableau de départ
+
+def affichageBoard():
+    print(30*"-")
+    print("   1  2  3  4  5  6  7  8")
+    for l in range(8):
+        L = l+1
+        print(L, " ", end="")
+        for c in range(8):
+            print(boardCoord[l][c], " ", end="")
+        print("")
+
+    print("   1  2  3  4  5  6  7  8")
+    print(30*"-")
