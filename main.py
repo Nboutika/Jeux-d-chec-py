@@ -6,11 +6,11 @@ from engine import *
 Lancement du programme depuis ici 
 """
 
-for l in range(8):  # Affichage du tableau initial de boardCoord
-    L = l+1
+for ligne in range(8):  # Affichage du tableau initial de boardCoord
+    L = ligne+1
     print(L, " ", end="")
-    for c in range(8):
-        print(boardCoord[l][c], " ", end="")
+    for colonne in range(8):
+        print(boardCoord[ligne][colonne], " ", end="")
     print("")
 
 print("   1  2  3  4  5  6  7  8")
