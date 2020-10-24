@@ -1,6 +1,5 @@
 """
 Initialisation des pièces
-
 La tour : Elle se déplace en ligne et colonne([+x][+0] OU [+0][+x])
 Le cavalier : Il se déplace en "L" donc il se déplace de 2 lignes et 1 colonne([1][0]) mais dans tous les sens
 Donc +-[2]+-[1] ET aussi +-[1]+-[2]
