@@ -74,3 +74,4 @@ def couleurJouez(ligne,colonne) :
                 noir=True
 
     return(noir,blanc)
+

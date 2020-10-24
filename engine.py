@@ -28,8 +28,9 @@ def Jeux() :
     roiBlanc=True
     blanc=False
     noir=False
+    nombredetour=0
     while roiNoir and roiBlanc == True :    #On fait tourner le jeux tant que les deux roix sont présent sur le plateau 
-
+        tourjouez=False
         ligne,colonne,ligneArrive,colonneArrive = commande()
 
         if boardCoord[ligne][colonne] == "-" :      #On regarde si c'est une pièce ou non       
@@ -38,95 +39,107 @@ def Jeux() :
             if ligne==ligneArrive and colonne==colonneArrive:       #On regarde si il y'a un déplacement ou non 
                 print("Il faut forcément faire un mouvement")
             else:
-                
                 noir,blanc = couleurJouez(ligne,colonne)    
                                                                  #On cherche qu'elle est le type de pièces séléctionné et si le déplacement est possible ou non
-                if noir == True :
+                if noir == True and nombredetour % 2 == 1:
                     if boardCoord[ligne][colonne]== "♟︎":
                         if pionNoir(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
                             Deplacement(ligne,colonne,ligneArrive,colonneArrive)
+                            tourjouez = True
                         else:
                             print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                     if boardCoord[ligne][colonne]== "♜":
                         if tour(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
                             Deplacement(ligne,colonne,ligneArrive,colonneArrive)
+                            tourjouez = True
                         else:
                             print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                     if boardCoord[ligne][colonne]== "♞":
                         if cavalier(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
                             Deplacement(ligne,colonne,ligneArrive,colonneArrive)
+                            tourjouez = True
                         else:
                             print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                     if boardCoord[ligne][colonne]== "♝":
                         if fou(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
                             Deplacement(ligne,colonne,ligneArrive,colonneArrive)
+                            tourjouez = True
                         else:
                             print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                     if boardCoord[ligne][colonne]== "♚":
                         if roi(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
                             Deplacement(ligne,colonne,ligneArrive,colonneArrive)
+                            tourjouez = True
                         else:
                             print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                     if boardCoord[ligne][colonne]== "♛":
                         if dame(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
                             Deplacement(ligne,colonne,ligneArrive,colonneArrive)
+                            tourjouez = True
                         else:
                             print("Déplacement de la pièce impossible veuillez faire autre chose")
-
 
                 else:
+                    if nombredetour % 2 == 0 :
+                        if boardCoord[ligne][colonne]== "♙":
+                            if pionBlanc(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
+                                Deplacement(ligne,colonne,ligneArrive,colonneArrive)
+                                tourjouez = True
+                            else:
+                                print("Déplacement de la pièce impossible veuillez faire autre chose")
+
+                        if boardCoord[ligne][colonne]== "♖":
+                            if tour(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
+                                Deplacement(ligne,colonne,ligneArrive,colonneArrive)
+                                tourjouez = True
+                            else:
+                                print("Déplacement de la pièce impossible veuillez faire autre chose")
+
+                        if boardCoord[ligne][colonne]== "♘":
+                            if cavalier(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
+                                Deplacement(ligne,colonne,ligneArrive,colonneArrive)
+                                tourjouez = True
+                            else:
+                                print("Déplacement de la pièce impossible veuillez faire autre chose")
+
+                        if boardCoord[ligne][colonne]== "♗":
+                            if fou(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
+                                Deplacement(ligne,colonne,ligneArrive,colonneArrive)
+                                tourjouez = True
+                            else:
+                                print("Déplacement de la pièce impossible veuillez faire autre chose")
+
+                        if boardCoord[ligne][colonne]== "♔":
+                            if roi(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
+                                Deplacement(ligne,colonne,ligneArrive,colonneArrive)
+                                tourjouez = True
+                            else:
+                                print("Déplacement de la pièce impossible veuillez faire autre chose")
+
+                        if boardCoord[ligne][colonne]== "♕":
+                            if dame(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
+                                Deplacement(ligne,colonne,ligneArrive,colonneArrive)
+                                tourjouez = True
+                            else:
+                                print("Déplacement de la pièce impossible veuillez faire autre chose")
 
 
-                    if boardCoord[ligne][colonne]== "♙":
-                        if pionBlanc(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                            Deplacement(ligne,colonne,ligneArrive,colonneArrive)
-                        else:
-                            print("Déplacement de la pièce impossible veuillez faire autre chose")
+                if tourjouez == True :
+                    nombredetour=nombredetour+1
+                    print("Vous êtes au tour ",nombredetour)
+                    affichageBoard()
+                else:
+                    print("Ce n'est pas a votre tour de jouez")
 
-                    if boardCoord[ligne][colonne]== "♖":
-                        if tour(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                            Deplacement(ligne,colonne,ligneArrive,colonneArrive)
-                        else:
-                            print("Déplacement de la pièce impossible veuillez faire autre chose")
-
-                    if boardCoord[ligne][colonne]== "♘":
-                        if cavalier(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                            Deplacement(ligne,colonne,ligneArrive,colonneArrive)
-                        else:
-                            print("Déplacement de la pièce impossible veuillez faire autre chose")
-
-                    if boardCoord[ligne][colonne]== "♗":
-                        if fou(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                            Deplacement(ligne,colonne,ligneArrive,colonneArrive)
-                        else:
-                            print("Déplacement de la pièce impossible veuillez faire autre chose")
-
-                    if boardCoord[ligne][colonne]== "♔":
-                        if roi(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                            Deplacement(ligne,colonne,ligneArrive,colonneArrive)
-                        else:
-                            print("Déplacement de la pièce impossible veuillez faire autre chose")
-
-                    if boardCoord[ligne][colonne]== "♕":
-                        if dame(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                            Deplacement(ligne,colonne,ligneArrive,colonneArrive)
-                        else:
-                            print("Déplacement de la pièce impossible veuillez faire autre chose")
-
-
-
-
-
-            affichageBoard()
             roiBlanc,roiNoir =EchecMat()
 
     if roiNoir == False:                #Si un roi a été détécté absent on cherche lequel et on affiche le vainqueur
         print("Le joueur blanc a gagné")
     else:
         print("Le joueur noir a gagné")
-
+    print("Vous avez gagné en ",nombredetour)
