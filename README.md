@@ -1,26 +1,31 @@
 Jeux d'échec en Python de BOUTIKAR Nassim et ARIES Lucas. \
 
 board.py sera le plateau \
-main.py sera le programme principale \
+main.py sera le programme pour lancer le jeux \
+pieces.py donnera les vecteurs de déplacement possibles \
+engine.py contiendra la trame du jeux \
 
-Plateau 8\*8 de dimension \
-pion avance de 1 et mange sur les diagonales de 1 \
-tour se déplace horizontalement et verticalement sur tout le plateau \
-fou sur ses diagonales \
-cavalier avance en L (2,1) \
-roi = tour+fou mais limité a 1 \
-reine = tour+fou \
-Les pions ne peuvent passer au dessus des autres pions \
+To do list :
 
-Deux équipes Blanc Noir se joue tour par tour \
+Tester si les mouvements sont tous fonctionnel 
+Régler problème si caractére pas numérique dans fonction commande / engine.py ne pas quitter le jeux mais demander de nouvelle commande \
+faire le système d'élimination des joueurs quand on passe dessus mais impossible si dans son équipe 
+faire le système de jeux tour par tour 
 
-Les règles utilisées :
+en tout dernier si jeux entiérement fonctionnel 
+-> Interface graphique 
 
-On gagne quand le roi adverse est manger. 
-Les pions lors de leurs premier tour peuvent avancer de 2 cases.
-si un pion arrive au bout du plateau il devient une tour.
-"Si ta d'autres idées ajoute"
+Règles spécifiques a notre jeux :\
+La partie se fini seulement quand l'un des deux rois est manger l'échec et mat ne compte pas \
+Il n'y a pas de timer ni de comptage de points pour les pièces éléminées \
+Se joue en entrant une commande tous sur la même ligne : \
+    vous entrez la ligne de la pièces que vous voulez déplacer \
+    séparation par un ou des espaces  \
+    vous entrez la colonne de la pièces que vous voulez déplacer \
+    séparation par un ou des espaces  \
+    vous entrez la ligne de la nouvelle position pour la pièces que vous voulez déplacer \
+    séparation par un ou des espaces  \
+    vous entrez la colonne de la nouvelle position pour la pièces que vous voulez déplacer \
 
----
 
-Pendant les vacances ==> Plateau
+

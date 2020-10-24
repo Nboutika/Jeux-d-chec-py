@@ -4,9 +4,15 @@ from board import *
 Programme de fonctionnement du jeux 
 Utilise le tableau a double entrée de board.py 
 Utilise pieces.py pour savoir si le mouvement est possible
+Se lance depuis le main.py
 """
 
-def commande():      #On test si la commande est correcte sinon on en demande une nouvelle
+"""
+Fonction commande permet de demander au joueur de jouer son coup avec la syntaxe
+ligne colonne ligneArrive colonneArrive et renvoie ses variables
+Détecte si les valeurs des coordonnés sont dans le tableau sinon en demande de nouvelle
+"""
+def commande():      
     Valable=False               
     while Valable == False :           
         Valable=True
@@ -22,12 +28,31 @@ def commande():      #On test si la commande est correcte sinon on en demande un
     
     ligne=commandeTableau[0]-1
     colonne=commandeTableau[1]-1
-    ligneArrive=commandeTableau[2]-1                #On établit les valeurs en input dans des variables
+    ligneArrive=commandeTableau[2]-1               
     colonneArrive=commandeTableau[3]-1
 
     return(ligne,colonne,ligneArrive,colonneArrive)
+"""
+Fonction Deplacement permet de déplacer les coordonnées séléctionnés dans le tableau et met a son 
+ancienne position le caractére vide "-"
+"""
+def Deplacement(ligne,colonne,ligneArrive,colonneArrive) :
+    boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
+    boardCoord[ligne][colonne]="-"
+"""
+Fonction Jeux la fonction principale 
+qui test diffénts conditions :
+Si un roi est mangé alors partie fini 
+En fonction de la pièces séléctionnés testé si :
+    il y'a une piéces sinon demander nouvelle commande
 
+    il y'a un déplacement éffectué sinon nouvelle commande
 
+    une pièces est séléctionné est ce que le mouvement demandé est possible 
+    on utilise les fonction de pieces.py pour tester si oui alors on fait 
+    appel a la fonction Deplacement sinon on demande une nouvelle commande
+    
+"""
 def Jeux() :
     roiNoir=True
     roiBlanc=True
@@ -40,12 +65,11 @@ def Jeux() :
         else:
             if ligne==ligneArrive and colonne==colonneArrive:       #On regarde si il y'a un déplacement ou non 
                 print("Il faut forcément faire un mouvement")
-            else:               #On cherche qu'elle est le type de pièces séléctionné et si le déplacement est possible ou non
+            else:                                                     #On cherche qu'elle est le type de pièces séléctionné et si le déplacement est possible ou non
                 if boardCoord[ligne][colonne]== "♜":
                     print("vous avez séléctionné la tour blanche")
                     if tour(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
-                        boardCoord[ligne][colonne]="-"
+                        Deplacement(ligne,colonne,ligneArrive,colonneArrive)
                     else:
                         print("Déplacement de la pièce impossible veuillez faire autre chose")
 
@@ -53,99 +77,88 @@ def Jeux() :
                 if boardCoord[ligne][colonne]== "♞":
                     print("vous avez séléctionné  le cavalier blanc")
                     if cavalier(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
-                        boardCoord[ligne][colonne]="-"
+                        Deplacement(ligne,colonne,ligneArrive,colonneArrive)
                     else:
                         print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♝":
                     print("vous avez séléctionné  le fou blanc")
                     if fou(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
-                        boardCoord[ligne][colonne]="-"
+                        Deplacement(ligne,colonne,ligneArrive,colonneArrive)
                     else:
                         print("Déplacement de la pièce impossible veuillez faire autre chose")        
 
                 if boardCoord[ligne][colonne]== "♛":
                     print("vous avez séléctionné  la reine blanc")
                     if dame(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
-                        boardCoord[ligne][colonne]="-"
+                        Deplacement(ligne,colonne,ligneArrive,colonneArrive)
                     else:
                         print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♚":
                     print("vous avez séléctionné  le roi blanc")
                     if roi(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
-                        boardCoord[ligne][colonne]="-"
+                        Deplacement(ligne,colonne,ligneArrive,colonneArrive)
                     else:
                         print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♟︎":
                     print("vous avez séléctionné  le pion blanc ")
-                    if pionNoir(boardCoord,ligne,colonne,ligneArrive,colonneArrive) : #pas encore de fonction pion blanc
-                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
-                        boardCoord[ligne][colonne]="-"
+                    if pionBlanc(boardCoord,ligne,colonne,ligneArrive,colonneArrive) : #pas encore de fonction pion blanc
+                        Deplacement(ligne,colonne,ligneArrive,colonneArrive)
                     else:
                         print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♖":
                     print("vous avez séléctionné  la tour noir")
                     if tour(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
-                        boardCoord[ligne][colonne]="-"
+                        Deplacement(ligne,colonne,ligneArrive,colonneArrive)
                     else:
                         print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♘":
                     print("vous avez séléctionné  le cavalier noir")
                     if cavalier(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
-                        boardCoord[ligne][colonne]="-"
+                        Deplacement(ligne,colonne,ligneArrive,colonneArrive)
                     else:
                         print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♗":
                     print("vous avez séléctionné  le fou noir")
                     if fou(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
-                        boardCoord[ligne][colonne]="-"
+                        Deplacement(ligne,colonne,ligneArrive,colonneArrive)
                     else:
                         print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♕":
                     print("vous avez séléctionné  la reine noir")
                     if dame(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
-                        boardCoord[ligne][colonne]="-"
+                        Deplacement(ligne,colonne,ligneArrive,colonneArrive)
                     else:
                         print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♔":
                     print("vous avez séléctionné  le roi noir")
                     if roi(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
-                        boardCoord[ligne][colonne]="-"
+                        Deplacement(ligne,colonne,ligneArrive,colonneArrive)
                     else:
                         print("Déplacement de la pièce impossible veuillez faire autre chose")
 
                 if boardCoord[ligne][colonne]== "♙":
                     print("vous avez séléctionné  le pion noir ")
                     if pionNoir(boardCoord,ligne,colonne,ligneArrive,colonneArrive) :
-                        boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
-                        boardCoord[ligne][colonne]="-"
+                        Deplacement(ligne,colonne,ligneArrive,colonneArrive)
                     else:
                         print("Déplacement de la pièce impossible veuillez faire autre chose")
 
 
+            print("   1  2  3  4  5  6  7  8")
             for l in range(8) :                     #On affiche le plateau après le coup
                 L=l+1
                 print(L," ",end="")
                 for c in range(8) :
                     print(boardCoord[l][c]," ",end="")
                 print("")
-
             print("   1  2  3  4  5  6  7  8")
 
             roiNoir=False               #On détecte si les rois sont encore présents et on renvoie en boolean 
