@@ -49,6 +49,19 @@ ancienne position le caractére vide "-"
 def Deplacement(ligne,colonne,ligneArrive,colonneArrive) :
     boardCoord[ligneArrive][colonneArrive]=boardCoord[ligne][colonne]
     boardCoord[ligne][colonne]="-"
+
+
+
+def EchecMat():
+    roiNoir=False               #On détecte si les rois sont encore présents et on renvoie en boolean 
+    roiBlanc=False
+    for x in range(8):
+        for y in range(8):
+            if boardCoord[x][y] == "♔":
+                roiNoir=True
+            if boardCoord[x][y] == "♚":
+                roiBlanc=True
+    return(roiBlanc,roiNoir)
 """
 Fonction Jeux la fonction principale 
 qui test diffénts conditions :
@@ -161,25 +174,8 @@ def Jeux() :
                     else:
                         print("Déplacement de la pièce impossible veuillez faire autre chose")
 
-
-            print("   1  2  3  4  5  6  7  8")
-            for l in range(8) :                     #On affiche le plateau après le coup
-                L=l+1
-                print(L," ",end="")
-                for c in range(8) :
-                    print(boardCoord[l][c]," ",end="")
-                print("")
-            print("   1  2  3  4  5  6  7  8")
-
-            roiNoir=False               #On détecte si les rois sont encore présents et on renvoie en boolean 
-            roiBlanc=False
-            for x in range(8):
-                for y in range(8):
-                    if boardCoord[x][y] == "♔":
-                        roiNoir=True
-                    if boardCoord[x][y] == "♚":
-                        roiBlanc=True
-        
+            affichageBoard()
+            roiBlanc,roiNoir =EchecMat()
 
     if roiNoir == False:                #Si un roi a été détécté absent on cherche lequel et on affiche le vainqueur
         print("Le joueur blanc a gagné")

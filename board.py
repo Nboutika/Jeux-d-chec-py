@@ -28,4 +28,15 @@ boardCoord = [
         ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜'],       
 ]
 
-#Tableau de départ
+def affichageBoard() :
+    print(30*"-")
+    print("   1  2  3  4  5  6  7  8")
+    for l in range(8) :                 #Affichage du tableau initial de boardCoord 
+        L=l+1
+        print(L," ",end="")
+        for c in range(8) :
+            print(boardCoord[l][c]," ",end="")
+        print("")
+
+    print("   1  2  3  4  5  6  7  8")
+    print(30*"-")
