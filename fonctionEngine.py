@@ -1,25 +1,25 @@
 from board import *
 """
-Ici engine.py appel les fonctions utiles a sont déroulement
-"""
-
-
-"""
-Fonction commande permet de demander au joueur de jouer son coup avec la syntaxe
-ligne colonne ligneArrive colonneArrive et renvoie ses variables
-Détecte si les valeurs des coordonnés sont dans le tableau sinon en demande de nouvelle
+----------------------------------------------------------------
+fonctionEngine.py sert à contenir les fonctions appelées par engine.py il contient:
+-La fonction commande qui permet de demander le coup que le joueur veut faire
+    et de vérifier s'il est conforme à la syntaxe
+-La fonction Deplacement qui deplace la pièce à la case demandée
+    et laisse un vide à son ancienne position
+-La fonction EchecMat qui permet de détecter si le roi blanc ou noir n'est plus dans la partie
+-La fonction couleurJouez qui permet de détecter la couleur de la pièce séléctionnée
+----------------------------------------------------------------
 """
 
 
 def commande():
+    print("Pour jouer utiliser |ligne de la pièce| |colonne de la pièce| |ligne d'arrivé| |colonne d'arrivé|")
     while True:
         try:
             Valable = False
             while Valable == False:
                 Valable = True
-                print(
-                    "Pour jouez utiliser |ligne de la pièce| |colonne de la pièce| |ligne d'arrivé| |colonne d'arrivé|")
-                coordonnées = input("Jouez votre coup : ").split(" ")
+                coordonnées = input("Jouer votre coup : ").split(" ")
                 commandeTableau = []
                 for i in coordonnées:
                     if i != "":
@@ -37,25 +37,14 @@ def commande():
 
             break
         except ValueError:
-            print("Ce n'est pas un nombre réessaye")
+            print("Votre coup ne contient pas que des chiffres")
 
         except IndexError:
-            print("Il faut 4 arguments")
-
-
-"""
-Fonction Deplacement permet de déplacer les coordonnées séléctionnés dans le tableau et met a son 
-ancienne position le caractére vide "-"
-"""
-
-
-def Deplacement(ligne, colonne, ligneArrive, colonneArrive):
-    boardCoord[ligneArrive][colonneArrive] = boardCoord[ligne][colonne]
-    boardCoord[ligne][colonne] = "-"
+            print("Il faut quatre arguments pour jouez ")
 
 
 def EchecMat():
-    roiNoir = False  # On détecte si les rois sont encore présents et on renvoie en boolean
+    roiNoir = False
     roiBlanc = False
     for x in range(8):
         for y in range(8):
@@ -71,11 +60,16 @@ def couleurJouez(ligne, colonne):
     noir = False
     for i in range(6):
         if boardCoord[ligne][colonne] == pieceBlanc[i]:
-            print("vous avez séléctionné", pieceBlanc[i])
+            print("vous avez sélectionné", pieceBlanc[i])
             blanc = True
         else:
             if boardCoord[ligne][colonne] == pieceNoir[i]:
-                print("vous avez séléctionné", pieceNoir[i])
+                print("vous avez sélectionné", pieceNoir[i])
                 noir = True
 
     return(noir, blanc)
+
+
+def Deplacement(ligne, colonne, ligneArrive, colonneArrive):
+    boardCoord[ligneArrive][colonneArrive] = boardCoord[ligne][colonne]
+    boardCoord[ligne][colonne] = "-"

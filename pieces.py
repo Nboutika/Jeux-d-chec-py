@@ -5,10 +5,19 @@ Le cavalier : Il se déplace en "L" donc il se déplace de 2 lignes et 1 colonne
 Donc +-[2]+-[1] ET aussi +-[1]+-[2]
 Le fou : il se déplace toujours en diagonale [+x][+x]
 La dame : Elle a tous les mouvements des autres pièces sauf le cavalier
-Le roi : comme la dame mais de 1 en 1
+Le roi : comme lc na dame mais de 1 en 1
 Pion : les noirs se déplace en ligne [+x][0]
 Pion blanc : [-x][0]
 """
+# l = ligne départ
+# c = colonne départ
+# la, colonneArrive = ligne/colonne arrivé
+"""
+boardCoord = []
+ligne = None
+colonne = None
+colonneArrive = None
+ligneArrive = None"""
 
 
 def pieceDansIntervalle(boardCoord, ligne, colonne, ligneArrive, colonneArrive):

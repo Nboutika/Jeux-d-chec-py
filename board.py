@@ -1,10 +1,15 @@
 from pieces import *
 """
+----------------------------------------------------------------
+board.py contient:
+-La fonction affichageBoard qui permet d'afficher le plateau
+-Le plateau avec les pièces en position initiale 
+-Les variables des pièces avec leur représentation visuelle
+----------------------------------------------------------------
 Utilisation d'unicode pour les pièces (bien vérifier si l'encodage est l'UTF-8)
-Chercher une solution pour les ColloneArrivéeses vides qui est agréable au regard pour pas que l'on se perde dans l'échiquier
-(éviter le ColloneArrivéeractère unicode du point central par exemple qui visiblement n'est pas adapté)
-Choix des coordonnées : Tableau[ligne][colonne] /!\ Attention ici en python l'index commence à 0 et non pas à 1 ! /!\
-    Représentation des coordonnées du plateau: 
+    
+Représentation des coordonnées du plateau depuis le terminal 
+Dans le programme  les index sont diminués de 1 
     1  2  3 4 5  6 7  8 
 ---------------------
 1|  ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
