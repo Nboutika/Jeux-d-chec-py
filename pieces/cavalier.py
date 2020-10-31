@@ -3,7 +3,7 @@ from vide import vide
 from boardlimit import boardlimit
 
 
-def cavalier(boardCoord,  ligne, colonne, couleur):
+def cavalier(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
     legalmoves = []
     if couleur == "n":
         color = pieceBlanc
@@ -20,7 +20,4 @@ def cavalier(boardCoord,  ligne, colonne, couleur):
             legalmoves.append(boardCoord[row][column])
         elif boardlimit(row, column) and boardCoord[row][column] in color:
             legalmoves.append(boardCoord[row][column])
-    return legalmoves
-
-
-print(cavalier(boardCoord, 0, 6, "n"))
+    return boardCoord[ligneArrive][colonneArrive] in legalmoves
