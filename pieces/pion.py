@@ -15,22 +15,22 @@ def pion(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
                 print(possibilite[0])
                 row = pospion[0] + possibilite[0]
                 column = pospion[1]
-                if vide(boardCoord, row, column) and boardlimit(row, column):
+                if boardlimit(row, column) and vide(boardCoord, row, column):
                     legalmoves.append(boardCoord[row][column])
             for possibilite in deplacement:
                 rowDestroy = pospion[0] + possibilite[0]
                 columnDestroy = pospion[1] + possibilite[1]
-                if boardCoord[rowDestroy][columnDestroy] in color and boardlimit(rowDestroy, columnDestroy):
+                if boardlimit(rowDestroy, columnDestroy) and boardCoord[rowDestroy][columnDestroy] in color:
                     legalmoves.append(boardCoord[rowDestroy][columnDestroy])
         else:
             row = pospion[0] + 1
             column = pospion[1]
-            if vide(boardCoord, row, column) and boardlimit(row, column):
+            if boardlimit(row, column) and vide(boardCoord, row, column):
                 legalmoves.append(boardCoord[row][column])
             for possibilite in deplacement:
                 rowDestroy = pospion[0] + possibilite[0]
                 columnDestroy = pospion[1] + possibilite[1]
-                if boardCoord[rowDestroy][columnDestroy] in color and boardlimit(rowDestroy, columnDestroy):
+                if boardlimit(rowDestroy, columnDestroy) and boardCoord[rowDestroy][columnDestroy] in color:
                     legalmoves.append(boardCoord[rowDestroy][columnDestroy])
     else:
         color = pieceNoir
@@ -40,21 +40,21 @@ def pion(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
             for x in premierdeplacement:
                 row = pospion[0] + x[0]
                 column = pospion[1]
-                if vide(boardCoord, row, column) and boardlimit(row, column):
+                if boardlimit(row, column) and vide(boardCoord, row, column):
                     legalmoves.append(boardCoord[row][column])
             for possibilite in deplacement:
                 rowDestroy = pospion[0] + possibilite[0]
                 columnDestroy = pospion[1] + possibilite[1]
-                if boardCoord[rowDestroy][columnDestroy] in color and boardlimit(rowDestroy, columnDestroy):
+                if boardlimit(rowDestroy, columnDestroy) and boardCoord[rowDestroy][columnDestroy] in color:
                     legalmoves.append(boardCoord[rowDestroy][columnDestroy])
         else:
             row = pospion[0] - 1
             column = pospion[1]
-            if vide(boardCoord, row, column) and boardlimit(row, column):
+            if boardlimit(row, column) and vide(boardCoord, row, column):
                 legalmoves.append(boardCoord[row][column])
             for possibilite in deplacement:
                 rowDestroy = pospion[0] + possibilite[0]
                 columnDestroy = pospion[1] + possibilite[1]
-                if boardCoord[rowDestroy][columnDestroy] in color and boardlimit(rowDestroy, columnDestroy):
+                if boardlimit(rowDestroy, columnDestroy) and boardCoord[rowDestroy][columnDestroy] in color:
                     legalmoves.append(boardCoord[rowDestroy][columnDestroy])
     return boardCoord[ligneArrive][colonneArrive] in legalmoves

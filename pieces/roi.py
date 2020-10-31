@@ -17,8 +17,8 @@ def roi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
     for possibilite in deplacement:
         row = posroi[0] + possibilite[0]
         column = posroi[1] + possibilite[1]
-        if vide(boardCoord, row, column) and boardlimit(row, column):
+        if boardlimit(row, column) and vide(boardCoord, row, column):
             legalmoves.append(boardCoord[row][column])
-        elif boardCoord[row][column] in color and boardlimit(row, column):
+        elif boardlimit(row, column) and boardCoord[row][column] in color:
             legalmoves.append(boardCoord[row][column])
     return boardCoord[ligneArrive][colonneArrive] in legalmoves
