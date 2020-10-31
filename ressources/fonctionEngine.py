@@ -52,9 +52,9 @@ def EchecMat():
     roiBlanc = False
     for x in range(8):
         for y in range(8):
-            if boardCoord[x][y] == "♔":
-                roiNoir = True
             if boardCoord[x][y] == "♚":
+                roiNoir = True
+            if boardCoord[x][y] == "♔":
                 roiBlanc = True
     return(roiBlanc, roiNoir)
 
