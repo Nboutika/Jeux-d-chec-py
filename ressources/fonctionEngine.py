@@ -1,4 +1,4 @@
-from board import boardCoord, pieceBlanc, pieceNoir
+from ressources.board import boardCoord, pieceBlanc, pieceNoir
 """
 ----------------------------------------------------------------
 fonctionEngine.py sert à contenir les fonctions appelées par engine.py il contient:

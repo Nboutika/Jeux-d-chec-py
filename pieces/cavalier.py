@@ -1,6 +1,6 @@
-from vide import vide
-from board import boardCoord, pieceBlanc, pieceNoir
-from boardlimit import boardlimit
+from pieces.vide import vide
+from ressources.board import boardCoord, pieceBlanc, pieceNoir
+from pieces.boardlimit import boardlimit
 
 
 def cavalier(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
@@ -12,7 +12,7 @@ def cavalier(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
 
     poscavalier = [ligne, colonne]
     deplacement = [[2, 1], [2, -1], [-2, 1],
-                   [-2, -1], [-1, -2], [1, -2], [1, 2], [1, -2]]
+                   [-2, -1], [-1, -2], [1, -2], [1, 2], [-1, 2]]
     for possibilite in deplacement:
         row = poscavalier[0] + possibilite[0]
         column = poscavalier[1] + possibilite[1]

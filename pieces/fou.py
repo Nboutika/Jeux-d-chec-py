@@ -1,6 +1,6 @@
-from vide import vide
-from board import boardCoord, pieceBlanc, pieceNoir
-from boardlimit import boardlimit
+from pieces.vide import vide
+from ressources.board import boardCoord, pieceBlanc, pieceNoir
+from pieces.boardlimit import boardlimit
 
 
 def fou(boardCoord,  ligne, colonne, ligneArrive, colonneArrive, couleur):

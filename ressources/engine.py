@@ -1,13 +1,13 @@
-from board import affichageBoard, boardCoord
-from fonctionEngine import commande, EchecMat, couleurJouez, Deplacement
-from tour import tour
-from fou import fou
-from roi import roi
-from cavalier import cavalier
-from dame import dame
-from pion import pion
-from vide import vide
-from boardlimit import boardlimit
+from ressources.board import affichageBoard, boardCoord
+from ressources.fonctionEngine import commande, EchecMat, couleurJouez, Deplacement
+from pieces.tour import tour
+from pieces.fou import fou
+from pieces.roi import roi
+from pieces.cavalier import cavalier
+from pieces.dame import dame
+from pieces.pion import pion
+from pieces.vide import vide
+from pieces.boardlimit import boardlimit
 
 """
 ----------------------------------------------------------------
@@ -57,7 +57,7 @@ def Jeux():
                 print(
                     "la position de départ ne peut pas être la même que celle d'arrivée")
             else:
-                noir = couleurJouez(ligne, colonne)
+                noir, blanc = couleurJouez(ligne, colonne)
 
                 if noir == True and nombredetour % 2 == 1:
                     if boardCoord[ligne][colonne] == "♟︎":
@@ -115,7 +115,7 @@ def Jeux():
                                 "La reine ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                 else:
-                    if nombredetour % 2 == 0:
+                    if blanc == True and nombredetour % 2 == 0:
                         if boardCoord[ligne][colonne] == "♙":
                             if pion(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                                 Deplacement(ligne, colonne,
@@ -175,7 +175,10 @@ def Jeux():
                     print("Vous êtes au tour ", nombredetour)
                     affichageBoard()
                 else:
-                    print("C'est au tour de votre adversaire de jouer")
+                    if nombredetour % 2 == 1:
+                        print("C'est au noir de jouer ")
+                    else:
+                        print("C'est au blanc de jouer")
 
             roiBlanc, roiNoir = EchecMat()
 

@@ -1,6 +1,6 @@
-from vide import vide
-from board import boardCoord, pieceBlanc, pieceNoir
-from boardlimit import boardlimit
+from pieces.vide import vide
+from ressources.board import boardCoord, pieceBlanc, pieceNoir
+from pieces.boardlimit import boardlimit
 
 
 def pion(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
@@ -10,12 +10,15 @@ def pion(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
         color = pieceBlanc
         deplacement = [[1, -1], [1, 1]]
         if pospion[0] == 1:
-            premierdeplacement = [[1], [2]]
-            for possibilite in premierdeplacement:
-                row = pospion[0] + possibilite[0]
+            i = 1
+            while True:
+                row = pospion[0] + i
                 column = pospion[1]
                 if boardlimit(row, column) and vide(boardCoord, row, column):
                     legalmoves.append([row, column])
+                    i += 1
+                else:
+                    break
             for possibilite in deplacement:
                 rowDestroy = pospion[0] + possibilite[0]
                 columnDestroy = pospion[1] + possibilite[1]
@@ -35,12 +38,15 @@ def pion(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
         color = pieceNoir
         deplacement = [[-1, -1], [-1, 1]]
         if pospion[0] == 6:
-            premierdeplacement = [[-1], [-2]]
-            for possibilite in premierdeplacement:
-                row = pospion[0] + possibilite[0]
+            i = -1
+            while True:
+                row = pospion[0] + i
                 column = pospion[1]
                 if boardlimit(row, column) and vide(boardCoord, row, column):
                     legalmoves.append([row, column])
+                    i += 1
+                else:
+                    break
             for possibilite in deplacement:
                 rowDestroy = pospion[0] + possibilite[0]
                 columnDestroy = pospion[1] + possibilite[1]
