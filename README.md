@@ -1,15 +1,16 @@
 Jeux d'échec en Python de BOUTIKAR Nassim et ARIES Lucas.
 
-board.py sera le plateau  
-main.py sera le programme principale
+#################################################################################################################################
 
-Plateau 8\*8 de dimension  
-pion avance de 1 et mange sur les diagonales de 1  
-tour se déplace horizontalement et verticalement sur tout le plateau  
-fou sur ses diagonales  
-cavalier avance en L (2,1)  
-roi = tour+fou mais limité a 1  
-reine = tour+fou  
-Les pions ne peuvent passer au dessus des autres pions
+Pour jouer : choisissez la ligne et la colonne de départ ainsi que celle d'arrivée
+exemple : "7A 5A" pour déplacer le premier pion blanc
+Règle : règle d'échec de base, les pièces ne sautes pas au dessus des autres à l'exception du cavalier, ici petit changement
+pour gagner la partie il faut manger le roi adverse donc pas de système d'échec et math ceci étant une première version et étant débutant sur python nous n'introduirons pas le système d'échec et math ou sinon plus tard
 
-Deux équipes Blanc Noir se joue tour par tour
+#################################################################################################################################
+
+#################################################################################################################################
+
+/!\ ASPECT GRAPHIQUE EN COURS ! /!\
+
+#################################################################################################################################
