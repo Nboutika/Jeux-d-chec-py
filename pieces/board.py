@@ -1,4 +1,4 @@
-from pieces import *
+
 """
 ----------------------------------------------------------------
 board.py contient:
@@ -39,13 +39,13 @@ pieceBlanc = [bp, bt, bf, bc, bd, br]
 pieceNoir = [np, nt, nf, nc, nd, nr]
 
 boardCoord = [
-    [nt, nc, nf, nd, "-", nf, nc, nt],
-    [np, np, np, np, "-", np, np, np],
+    [nt, nc, nf, nd, nr, nf, nc, nt],
+    [np, np, np, np, np, np, np, np],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
-    ["-", "-", "-", nr, np, "-", "-", "-"],
-    ["-", "-", "-", bp, "-", "-", "-", "-"],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
-    [bp, bp, bp, bp, "-", bp, bp, bp],
+    ["-", "-", "-", "-", "-", "-", "-", "-"],
+    ["-", "-", "-", "-", "-", "-", "-", "-"],
+    [bp, bp, bp, bp, bp, bp, bp, bp],
     [bt, bc, bf, bd, br, bf, bc, bt],
 ]
 
