@@ -1,5 +1,13 @@
 from board import *
 from fonctionEngine import *
+from tour import tour
+from fou import fou
+from roi import roi
+from cavalier import cavalier
+from dame import dame
+from pion import pion
+from vide import vide
+from boardlimit import boardlimit
 
 """
 ----------------------------------------------------------------
@@ -54,7 +62,7 @@ def Jeux():
 
                 if noir == True and nombredetour % 2 == 1:
                     if boardCoord[ligne][colonne] == "♟︎":
-                        if pionNoir(boardCoord, ligne, colonne, ligneArrive, colonneArrive):
+                        if pion(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
                             Deplacement(ligne, colonne,
                                         ligneArrive, colonneArrive)
                             tourjouez = True
@@ -63,7 +71,7 @@ def Jeux():
                                 "Le pion noir  ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                     if boardCoord[ligne][colonne] == "♜":
-                        if tour(boardCoord, ligne, colonne, ligneArrive, colonneArrive):
+                        if tour(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
                             Deplacement(ligne, colonne,
                                         ligneArrive, colonneArrive)
                             tourjouez = True
@@ -72,7 +80,7 @@ def Jeux():
                                 "La tour ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                     if boardCoord[ligne][colonne] == "♞":
-                        if cavalier(boardCoord, ligne, colonne, ligneArrive, colonneArrive):
+                        if cavalier(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
                             Deplacement(ligne, colonne,
                                         ligneArrive, colonneArrive)
                             tourjouez = True
@@ -81,7 +89,7 @@ def Jeux():
                                 "Le cavalier ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                     if boardCoord[ligne][colonne] == "♝":
-                        if fou(boardCoord, ligne, colonne, ligneArrive, colonneArrive):
+                        if fou(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
                             Deplacement(ligne, colonne,
                                         ligneArrive, colonneArrive)
                             tourjouez = True
@@ -90,7 +98,7 @@ def Jeux():
                                 "Le fou ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                     if boardCoord[ligne][colonne] == "♚":
-                        if roi(boardCoord, ligne, colonne, ligneArrive, colonneArrive):
+                        if roi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
                             Deplacement(ligne, colonne,
                                         ligneArrive, colonneArrive)
                             tourjouez = True
@@ -99,7 +107,7 @@ def Jeux():
                                 "Le roi ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                     if boardCoord[ligne][colonne] == "♛":
-                        if dame(boardCoord, ligne, colonne, ligneArrive, colonneArrive):
+                        if dame(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
                             Deplacement(ligne, colonne,
                                         ligneArrive, colonneArrive)
                             tourjouez = True
@@ -110,7 +118,7 @@ def Jeux():
                 else:
                     if nombredetour % 2 == 0:
                         if boardCoord[ligne][colonne] == "♙":
-                            if pionBlanc(boardCoord, ligne, colonne, ligneArrive, colonneArrive):
+                            if pion(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                                 Deplacement(ligne, colonne,
                                             ligneArrive, colonneArrive)
                                 tourjouez = True
@@ -119,7 +127,7 @@ def Jeux():
                                     "Le pion blanc ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                         if boardCoord[ligne][colonne] == "♖":
-                            if tour(boardCoord, ligne, colonne, ligneArrive, colonneArrive):
+                            if tour(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                                 Deplacement(ligne, colonne,
                                             ligneArrive, colonneArrive)
                                 tourjouez = True
@@ -128,7 +136,7 @@ def Jeux():
                                     "La tour ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                         if boardCoord[ligne][colonne] == "♘":
-                            if cavalier(boardCoord, ligne, colonne, ligneArrive, colonneArrive):
+                            if cavalier(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                                 Deplacement(ligne, colonne,
                                             ligneArrive, colonneArrive)
                                 tourjouez = True
@@ -137,7 +145,7 @@ def Jeux():
                                     "Le cavalier ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                         if boardCoord[ligne][colonne] == "♗":
-                            if fou(boardCoord, ligne, colonne, ligneArrive, colonneArrive):
+                            if fou(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                                 Deplacement(ligne, colonne,
                                             ligneArrive, colonneArrive)
                                 tourjouez = True
@@ -146,7 +154,7 @@ def Jeux():
                                     "Le fou ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                         if boardCoord[ligne][colonne] == "♔":
-                            if roi(boardCoord, ligne, colonne, ligneArrive, colonneArrive):
+                            if roi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                                 Deplacement(ligne, colonne,
                                             ligneArrive, colonneArrive)
                                 tourjouez = True
@@ -155,7 +163,7 @@ def Jeux():
                                     "Le roi ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                         if boardCoord[ligne][colonne] == "♕":
-                            if dame(boardCoord, ligne, colonne, ligneArrive, colonneArrive):
+                            if dame(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                                 Deplacement(ligne, colonne,
                                             ligneArrive, colonneArrive)
                                 tourjouez = True

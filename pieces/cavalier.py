@@ -1,5 +1,5 @@
-from board import boardCoord, pieceBlanc, pieceNoir
 from vide import vide
+from board import boardCoord, pieceBlanc, pieceNoir
 from boardlimit import boardlimit
 
 

@@ -1,5 +1,4 @@
 from board import *
-from pieces import *
 from engine import *
 
 """
