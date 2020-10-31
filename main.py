@@ -7,7 +7,8 @@ Lancement du programme depuis ici
 ----------------------------------------------------------------
 """
 
-affichageBoard()
+if __name__ == '__main__':
+    affichageBoard()
 
-lancer = input("Veuillez appuyez sur entrée pour commencer")
-Jeux()
+    lancer = input("Veuillez appuyez sur entrée pour commencer")
+    Jeux()
