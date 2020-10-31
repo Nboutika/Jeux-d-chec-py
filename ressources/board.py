@@ -48,8 +48,14 @@ boardCoord = [
     [bt, bc, bf, bd, br, bf, bc, bt],
 ]
 
+<<<<<<< HEAD
 dictionnaireIndex = {"A": "0", "B": "1", "C": "2", "D": "3", "E": "4", "F": "5", "G": "6", "H": "7"
                      }
+=======
+dictionnaireIndex = {"A":"0" , "B":"1" , "C":"2" , "D":"3" , "E":"4" , "F":"5" , "G":"6" , "H":"7",
+                     "a":"0" , "b":"1" , "c":"2" , "d":"3" , "e":"4" , "f":"5" , "g":"6" , "h":"7"
+                    }
+>>>>>>> 10648ab94bedfdacfb5838a893c78a34b156ab54
 
 
 def affichageBoard():
@@ -64,3 +70,5 @@ def affichageBoard():
 
     print("   A  B  C  D  E  F  G  H")
     print(30*"-")
+
+
