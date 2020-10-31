@@ -1,5 +1,6 @@
-from ressources.board import affichageBoard
+
 from ressources.engine import Jeux
+from ressources.board import affichageBoard
 
 """
 ----------------------------------------------------------------
