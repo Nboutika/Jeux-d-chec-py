@@ -1,4 +1,4 @@
-from board import *
+from board import boardCoord, pieceBlanc, pieceNoir
 """
 ----------------------------------------------------------------
 fonctionEngine.py sert à contenir les fonctions appelées par engine.py il contient:
@@ -35,7 +35,6 @@ def commande():
 
             return(ligne, colonne, ligneArrive, colonneArrive)
 
-            break
         except ValueError:
             print("Votre coup ne contient pas que des chiffres")
 

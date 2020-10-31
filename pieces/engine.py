@@ -1,5 +1,5 @@
-from board import *
-from fonctionEngine import *
+from board import affichageBoard, boardCoord
+from fonctionEngine import commande, EchecMat, couleurJouez, Deplacement
 from tour import tour
 from fou import fou
 from roi import roi
@@ -44,7 +44,6 @@ Trame du jeu, définit le rythme de la partie  il contient :
 def Jeux():
     roiNoir = True
     roiBlanc = True
-    blanc = False
     noir = False
     nombredetour = 0
     while roiNoir and roiBlanc == True:
@@ -58,7 +57,7 @@ def Jeux():
                 print(
                     "la position de départ ne peut pas être la même que celle d'arrivée")
             else:
-                noir, blanc = couleurJouez(ligne, colonne)
+                noir = couleurJouez(ligne, colonne)
 
                 if noir == True and nombredetour % 2 == 1:
                     if boardCoord[ligne][colonne] == "♟︎":

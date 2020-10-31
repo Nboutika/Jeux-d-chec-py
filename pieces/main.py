@@ -1,5 +1,5 @@
-from board import *
-from engine import *
+from board import affichageBoard
+from engine import Jeux
 
 """
 ----------------------------------------------------------------
