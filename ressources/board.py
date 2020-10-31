@@ -1,4 +1,3 @@
-
 """
 ----------------------------------------------------------------
 board.py contient:
@@ -49,10 +48,13 @@ boardCoord = [
     [bt, bc, bf, bd, br, bf, bc, bt],
 ]
 
+dictionnaireIndex = {"A": "0", "B": "1", "C": "2", "D": "3", "E": "4", "F": "5", "G": "6", "H": "7"
+                     }
+
 
 def affichageBoard():
     print(30*"-")
-    print("   1  2  3  4  5  6  7  8")
+    print("   A  B  C  D  E  F  G  H")
     for l in range(8):
         L = l+1
         print(L, " ", end="")
@@ -60,5 +62,7 @@ def affichageBoard():
             print(boardCoord[l][c], " ", end="")
         print("")
 
-    print("   1  2  3  4  5  6  7  8")
+    print("   A  B  C  D  E  F  G  H")
     print(30*"-")
+
+

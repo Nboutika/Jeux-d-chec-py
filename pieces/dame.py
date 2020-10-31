@@ -1,6 +1,6 @@
-from vide import vide
-from board import boardCoord, pieceBlanc, pieceNoir
-from boardlimit import boardlimit
+from ressources.vide import vide
+from ressources.board import boardCoord, pieceBlanc, pieceNoir
+from ressources.boardlimit import boardlimit
 
 
 def dame(boardCoord,  ligne, colonne, ligneArrive, colonneArrive, couleur):
