@@ -1,4 +1,4 @@
-from ressources.board import boardCoord, pieceBlanc, pieceNoir
+from ressources.board import boardCoord, pieceBlanc, pieceNoir, dictionnaireIndex
 """
 ----------------------------------------------------------------
 fonctionEngine.py sert à contenir les fonctions appelées par engine.py il contient:
@@ -13,33 +13,38 @@ fonctionEngine.py sert à contenir les fonctions appelées par engine.py il cont
 
 
 def commande():
-    print("Pour jouer utiliser |ligne de la pièce| |colonne de la pièce| |ligne d'arrivé| |colonne d'arrivé|")
     while True:
         try:
             Valable = False
             while Valable == False:
                 Valable = True
+                print(
+                    "Pour jouer utiliser |ligne de la pièce colonne de la pièce|     |ligne d'arrivé colonne d'arrivé|")
                 coordonnées = input("Jouer votre coup : ").split(" ")
-                commandeTableau = []
-                for i in coordonnées:
-                    if i != "":
-                        commandeTableau.append(int(i))
-                    for i in range(len(commandeTableau)):
-                        if commandeTableau[i] < 1 or commandeTableau[i] > 8:
-                            Valable = False
 
-            ligne = commandeTableau[0]-1
-            colonne = commandeTableau[1]-1
-            ligneArrive = commandeTableau[2]-1
-            colonneArrive = commandeTableau[3]-1
+                ligne = int(coordonnées[0][0])-1
+                ligneArrive = int(coordonnées[1][0])-1
+                colonne = int(dictionnaireIndex[coordonnées[0][1].upper()])
+                colonneArrive = int(
+                    dictionnaireIndex[coordonnées[1][1].upper()])
+                if (ligne < 0) or (ligne > 7) or (ligneArrive < 0) or (ligneArrive > 7):
+                    Valable = False
+                    print("les lignes du plateau ne vont que de 1 à 8 ")
 
-            return(ligne, colonne, ligneArrive, colonneArrive)
-
-        except ValueError:
-            print("Votre coup ne contient pas que des chiffres")
+                else:
+                    return(ligne, colonne, ligneArrive, colonneArrive)
 
         except IndexError:
-            print("Il faut quatre arguments pour jouez ")
+            print("Il faut quatre arguments pour jouer et séparer d'un espace les coordonnées de départ et d'arriver")
+            Valable = False
+
+        except ValueError:
+            print("Voici un exemple de coup valide : 4c 6d")
+            Valable = False
+
+        except KeyError:
+            print("Voici un exemple de coup valide : 1a 3a")
+            Valable = False
 
 
 def EchecMat():
