@@ -1,6 +1,6 @@
-from pieces.vide import vide
+from ressources.vide import vide
 from ressources.board import boardCoord, pieceBlanc, pieceNoir
-from pieces.boardlimit import boardlimit
+from ressources.boardlimit import boardlimit
 
 
 def pion(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
@@ -44,7 +44,7 @@ def pion(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
                 column = pospion[1]
                 if boardlimit(row, column) and vide(boardCoord, row, column):
                     legalmoves.append([row, column])
-                    i += 1
+                    i -= 1
                 else:
                     break
             for possibilite in deplacement:

@@ -6,9 +6,6 @@ from pieces.roi import roi
 from pieces.cavalier import cavalier
 from pieces.dame import dame
 from pieces.pion import pion
-from pieces.vide import vide
-from pieces.boardlimit import boardlimit
-
 """
 ----------------------------------------------------------------
 Trame du jeu, définit le rythme de la partie  il contient :
