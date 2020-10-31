@@ -1,72 +1,64 @@
-
-
+from pieces import *
 """
+----------------------------------------------------------------
+board.py contient:
+-La fonction affichageBoard qui permet d'afficher le plateau
+-Le plateau avec les pièces en position initiale 
+-Les variables des pièces avec leur représentation visuelle
+----------------------------------------------------------------
 Utilisation d'unicode pour les pièces (bien vérifier si l'encodage est l'UTF-8)
-Chercher une solution pour les cases vides qui est agréable au regard pour pas que l'on se perde dans l'échiquier
-(éviter le caractère unicode du point central par exemple qui visiblement n'est pas adapté)
-Choix des coordonnées : Tableau[ligne][colonne] /!\ Attention ici en python l'index commence à 0 et non pas à 1 ! /!\
-"""
-
-
-
-class Board():
-    def __init__(self):
-        self.BoardCoord = [
-            ['♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜'],
-            ['♟︎', '♟︎', '♟︎', '♟︎', '♟︎', '♟︎', '♟︎', '♟︎'],
-            ["-", "-", "-", "-", "-", "-", "-", "-"],
-            ["-", "-", "-", "-", "-", "-", "-", "-"],
-            ["-", "-", "-", "-", "-", "-", "-", "-"],
-            ["-", "-", "-", "-", "-", "-", "-", "-"],
-            ['♙', '♙', '♙', '♙', '♙', '♙', '♙', '♙'],
-            ['♖', '♘', '♗', '♕', '♔', '♗', '♘', '♖'],
-        ]
-
-"""
-    Représentation des coordonnées du plateau : 
-    0 1 2 3 4 5 6 7 
+    
+Représentation des coordonnées du plateau depuis le terminal 
+Dans le programme  les index sont diminués de 1 
+    1  2  3 4 5  6 7  8 
 ---------------------
-0|  ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
-1|  ♟︎ ♟︎ ♟︎ ♟︎ ♟︎ ♟︎ ♟︎ ♟︎
-2|  -  - -  - - -  - -
+1|  ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
+2|  ♟︎ ♟︎ ♟︎ ♟︎ ♟︎ ♟︎ ♟︎ ♟︎
 3|  -  - -  - - -  - -
 4|  -  - -  - - -  - -
 5|  -  - -  - - -  - -
-6|  ♙ ♙ ♙ ♙ ♙ ♙ ♙ ♙
-7|  ♖ ♘ ♗ ♕ ♔ ♗ ♘ ♖
+6|  -  - -  - - -  - -
+7|  ♙ ♙ ♙ ♙ ♙ ♙ ♙ ♙
+8|  ♖ ♘ ♗ ♕ ♔ ♗ ♘ ♖
 """
 
-b = Board()
+nt = '♜'
+nc = '♞'
+nf = '♝'
+nr = '♚'
+nd = '♛'
+np = '♟︎'
+bt = '♖'
+bc = '♘'
+bf = '♗'
+br = '♔'
+bd = '♕'
+bp = '♙'
+
+pieceBlanc = [bp, bt, bf, bc, bd, br]
+pieceNoir = [np, nt, nf, nc, nd, nr]
+
+boardCoord = [
+    [nt, nc, nf, nd, nr, nf, nc, nt],
+    [np, np, np, np, np, np, np, np],
+    ["-", "-", "-", "-", "-", "-", "-", "-"],
+    ["-", "-", "-", "-", "-", "-", "-", "-"],
+    ["-", "-", "-", "-", "-", "-", "-", "-"],
+    ["-", "-", "-", "-", "-", "-", "-", "-"],
+    [bp, bp, bp, bp, bp, bp, bp, bp],
+    [bt, bc, bf, bd, br, bf, bc, bt],
+]
 
 
+def affichageBoard():
+    print(30*"-")
+    print("   1  2  3  4  5  6  7  8")
+    for l in range(8):
+        L = l+1
+        print(L, " ", end="")
+        for c in range(8):
+            print(boardCoord[l][c], " ", end="")
+        print("")
 
-
-l=int(input("Veuillez saisir un entier entre [0,7] pour la ligne désirée : "))
-while l<0 or l>7 :
-    l=int(input("Nombre incorrect , veuillez ressaisir un entier entre [0,7] pour la ligne désirée : "))
-
-c=int(input("Veuillez saisir un entier entre [0,7] pour  la colonne désirée : "))
-while c<0 or c>7 : 
-    c=int(input("Nombre incorrect , veuillez ressaisir un entier entre [0,7] pour  la colonne désirée : "))
-
-
-la=int(input("Veuillez saisir un entier entre [0,7] pour la nouvelle ligne désirée : "))
-while la<0 or la>7 :
-    la=int(input("Nombre incorrect , veuillez ressaisir un entier entre [0,7] pour la nouvelle ligne désirée : "))
-
-ca=int(input("Veuillez saisir un entier entre [0,7] pour  la nouvelle colonne désirée : "))
-while ca<0 or ca>7 : 
-    ca=int(input("Nombre incorrect , veuillez ressaisir un entier entre [0,7] pour  la nouvelle colonne désirée : "))
-    
-print(b.BoardCoord[l][c])
-b.BoardCoord[la][ca]=b.BoardCoord[l][c]
-b.BoardCoord[l][c]="-"
-
-for ligne in range(8) :
-    print(ligne," ",end="")
-    for colonne in range(8) :
-        print(b.BoardCoord[ligne][colonne]," ",end="")
-    print("")
-
-print("   a  b  c  d  e  f  g  h")
-
+    print("   1  2  3  4  5  6  7  8")
+    print(30*"-")
