@@ -1,10 +1,14 @@
-from board import *
+from board import boardCoord, pieceBlanc, pieceNoir
 from vide import vide
 from boardlimit import boardlimit
 
 
-def roi(boardCoord, ligne, colonne, couleur):
+def roi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
     legalmoves = []
+    if couleur == "n":
+        color = pieceBlanc
+    else:
+        color = pieceNoir
     for lignes in boardCoord:
         for colonnes in lignes:
             if boardCoord.index(lignes) == ligne and lignes.index(colonnes) == colonne:
@@ -17,9 +21,9 @@ def roi(boardCoord, ligne, colonne, couleur):
                     column = posroi[1] + possibilite[1]
                     if vide(boardCoord, row, column) and boardlimit(row, column):
                         legalmoves.append(boardCoord[row][column])
-                    if (not boardCoord[ligne][colonne].startswith(couleur[0])) and boardlimit(row, column):
+                    if boardCoord[row][column] in color and boardlimit(row, column):
                         legalmoves.append(boardCoord[row][column])
-    return legalmoves
+    return boardCoord[ligneArrive][colonneArrive] in legalmoves
 
 
-print(roi(boardCoord, 3, 3, "nr"))
+print(roi(boardCoord, 0, 4, 1, 4, "n"))
