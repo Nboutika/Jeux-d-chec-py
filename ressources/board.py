@@ -34,6 +34,19 @@ br = '♔'
 bd = '♕'
 bp = '♙'
 
+historiqueTourB=[]
+historiqueCavalierB=[]
+historiqueFouB=[]
+historiqueRoiB=[]
+historiqueReineB=[]
+
+historiqueTourN=[]
+historiqueCavalierN=[]
+historiqueFouN=[]
+historiqueRoiN=[]
+historiqueReineN=[]
+
+
 pieceBlanc = [bp, bt, bf, bc, bd, br]
 pieceNoir = [np, nt, nf, nc, nd, nr]
 

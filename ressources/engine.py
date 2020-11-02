@@ -1,5 +1,5 @@
-from ressources.board import affichageBoard, boardCoord
-from ressources.fonctionEngine import commande, EchecMat, couleurJouez, Deplacement, pionConvertir
+from ressources.board import *
+from ressources.fonctionEngine import commande, EchecMat, couleurJouez, Deplacement, pionConvertir, egalite
 from pieces.tour import tour
 from pieces.fou import fou
 from pieces.roi import roi
@@ -42,10 +42,12 @@ def Jeux():
     roiNoir = True
     roiBlanc = True
     noir = False
+    coupJouerTripleNoir=False
     nombredetour = 0
     while roiNoir and roiBlanc == True:
         tourjouez = False
         ligne, colonne, ligneArrive, colonneArrive = commande()
+        pieceJouer=boardCoord[ligne][colonne]
 
         if boardCoord[ligne][colonne] == "-":
             print("la position donnée ne contient aucune pièce")
@@ -61,6 +63,7 @@ def Jeux():
                         if pion(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
                             Deplacement(ligne, colonne,
                                         ligneArrive, colonneArrive)
+                            coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                             tourjouez = True
                         else:
                             print(
@@ -70,6 +73,7 @@ def Jeux():
                         if tour(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
                             Deplacement(ligne, colonne,
                                         ligneArrive, colonneArrive)
+                            coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                             tourjouez = True
                         else:
                             print(
@@ -79,6 +83,7 @@ def Jeux():
                         if cavalier(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
                             Deplacement(ligne, colonne,
                                         ligneArrive, colonneArrive)
+                            coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                             tourjouez = True
                         else:
                             print(
@@ -88,6 +93,7 @@ def Jeux():
                         if fou(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
                             Deplacement(ligne, colonne,
                                         ligneArrive, colonneArrive)
+                            coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                             tourjouez = True
                         else:
                             print(
@@ -97,6 +103,7 @@ def Jeux():
                         if roi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
                             Deplacement(ligne, colonne,
                                         ligneArrive, colonneArrive)
+                            coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                             tourjouez = True
                         else:
                             print(
@@ -106,6 +113,7 @@ def Jeux():
                         if dame(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
                             Deplacement(ligne, colonne,
                                         ligneArrive, colonneArrive)
+                            coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                             tourjouez = True
                         else:
                             print(
@@ -117,6 +125,7 @@ def Jeux():
                             if pion(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                                 Deplacement(ligne, colonne,
                                             ligneArrive, colonneArrive)
+                                coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                                 tourjouez = True
                             else:
                                 print(
@@ -126,6 +135,7 @@ def Jeux():
                             if tour(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                                 Deplacement(ligne, colonne,
                                             ligneArrive, colonneArrive)
+                                coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                                 tourjouez = True
                             else:
                                 print(
@@ -135,6 +145,7 @@ def Jeux():
                             if cavalier(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                                 Deplacement(ligne, colonne,
                                             ligneArrive, colonneArrive)
+                                coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                                 tourjouez = True
                             else:
                                 print(
@@ -144,6 +155,7 @@ def Jeux():
                             if fou(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                                 Deplacement(ligne, colonne,
                                             ligneArrive, colonneArrive)
+                                coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                                 tourjouez = True
                             else:
                                 print(
@@ -153,6 +165,7 @@ def Jeux():
                             if roi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                                 Deplacement(ligne, colonne,
                                             ligneArrive, colonneArrive)
+                                coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                                 tourjouez = True
                             else:
                                 print(
@@ -162,6 +175,7 @@ def Jeux():
                             if dame(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                                 Deplacement(ligne, colonne,
                                             ligneArrive, colonneArrive)
+                                coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                                 tourjouez = True
                             else:
                                 print(
@@ -172,6 +186,12 @@ def Jeux():
                     print("Vous êtes au tour ", nombredetour)
                     pionConvertir()
                     affichageBoard()
+                    if coupJouerTripleBlanc:
+                        print("CoupJouertripleBlanc")
+                    if coupJouerTripleNoir:
+                        print("coupJouer triple Noir")
+                    if coupJouerTripleBlanc and coupJouerTripleNoir == True : 
+                        print("égalité")
                 else:
                     if nombredetour % 2 == 1:
                         print("C'est au noir de jouer ")
