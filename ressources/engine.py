@@ -1,4 +1,4 @@
-from ressources.board import *
+from ressources.board import affichageBoard, boardCoord
 from ressources.fonctionEngine import commande, EchecMat, couleurJouez, Deplacement, pionConvertir, egalite
 from pieces.tour import tour
 from pieces.fou import fou
@@ -6,6 +6,7 @@ from pieces.roi import roi
 from pieces.cavalier import cavalier
 from pieces.dame import dame
 from pieces.pion import pion
+from ressources.egalite import egalite
 """
 ----------------------------------------------------------------
 Trame du jeu, définit le rythme de la partie  il contient :
