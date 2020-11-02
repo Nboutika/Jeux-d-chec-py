@@ -1,5 +1,5 @@
 from ressources.board import affichageBoard, boardCoord
-from ressources.fonctionEngine import commande, EchecMat, couleurJouez, Deplacement
+from ressources.fonctionEngine import commande, EchecMat, couleurJouez, Deplacement, pionConvertir
 from pieces.tour import tour
 from pieces.fou import fou
 from pieces.roi import roi
@@ -170,6 +170,7 @@ def Jeux():
                 if tourjouez == True:
                     nombredetour = nombredetour+1
                     print("Vous êtes au tour ", nombredetour)
+                    pionConvertir()
                     affichageBoard()
                 else:
                     if nombredetour % 2 == 1:

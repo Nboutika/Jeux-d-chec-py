@@ -1,4 +1,4 @@
-from ressources.board import boardCoord, pieceBlanc, pieceNoir, dictionnaireIndex
+from ressources.board import *
 """
 ----------------------------------------------------------------
 fonctionEngine.py sert à contenir les fonctions appelées par engine.py il contient:
@@ -77,3 +77,11 @@ def couleurJouez(ligne, colonne):
 def Deplacement(ligne, colonne, ligneArrive, colonneArrive):
     boardCoord[ligneArrive][colonneArrive] = boardCoord[ligne][colonne]
     boardCoord[ligne][colonne] = "-"
+
+def pionConvertir():
+    for colonnePlateau in range(8):
+        if boardCoord[0][colonnePlateau] == bp :
+            boardCoord[0][colonnePlateau] = bd
+        if boardCoord[7][colonnePlateau] == np :
+            boardCoord[7][colonnePlateau] = nd
+
