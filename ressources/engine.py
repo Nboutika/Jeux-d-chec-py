@@ -41,10 +41,11 @@ Trame du jeu, définit le rythme de la partie  il contient :
 def Jeux():
     roiNoir = True
     roiBlanc = True
+    egaliteMouvements = True
     noir = False
     coupJouerTripleNoir=False
     nombredetour = 0
-    while roiNoir and roiBlanc == True:
+    while roiNoir and roiBlanc and egaliteMouvements == True:
         tourjouez = False
         ligne, colonne, ligneArrive, colonneArrive = commande()
         pieceJouer=boardCoord[ligne][colonne]
@@ -186,12 +187,8 @@ def Jeux():
                     print("Vous êtes au tour ", nombredetour)
                     pionConvertir()
                     affichageBoard()
-                    if coupJouerTripleBlanc:
-                        print("CoupJouertripleBlanc")
-                    if coupJouerTripleNoir:
-                        print("coupJouer triple Noir")
                     if coupJouerTripleBlanc and coupJouerTripleNoir == True : 
-                        print("égalité")
+                        egaliteMouvements =False
                 else:
                     if nombredetour % 2 == 1:
                         print("C'est au noir de jouer ")
@@ -200,8 +197,11 @@ def Jeux():
 
             roiBlanc, roiNoir = EchecMat()
 
-    if roiNoir == False:
-        print("Le joueur blanc a gagné")
+    if egaliteMouvements == False:
+        print("La partie se finit sur égalité, car vous avez répété 3fois les mêmes déplacements")
     else:
-        print("Le joueur noir a gagné")
-    print("Vous avez gagné en ", nombredetour, " tours")
+        if roiNoir == False:
+            print("Le joueur blanc a gagné")
+        else:
+            print("Le joueur noir a gagné")
+        print("Vous avez gagné en ", nombredetour, " tours")
