@@ -15,7 +15,6 @@ fonctionEngine.py sert à contenir les fonctions appelées par engine.py il cont
 def commande():
     while True:
         try:
-<<<<<<< HEAD
             Valable = False
             while Valable == False:
                 Valable = True
@@ -30,20 +29,6 @@ def commande():
                     dictionnaireIndex[coordonnées[1][1].upper()])
                 if (ligne < 0) or (ligne > 7) or (ligneArrive < 0) or (ligneArrive > 7):
                     Valable = False
-=======
-            Valable=False
-            while Valable==False:
-                Valable=True
-                print("Pour jouer utiliser |ligne de la pièce colonne de la pièce|     |ligne d'arrivé colonne d'arrivé|")
-                coordonnées = input("Jouer votre coup : ").split(" ")
-
-                ligne=int(coordonnées[0][0])-1
-                ligneArrive=int(coordonnées[1][0])-1
-                colonne=int(dictionnaireIndex[coordonnées[0][1]])
-                colonneArrive=int(dictionnaireIndex[coordonnées[1][1]])
-                if (ligne < 0 ) or (ligne > 7) or (ligneArrive < 0 ) or (ligneArrive > 7):
-                    Valable=False
->>>>>>> 10648ab94bedfdacfb5838a893c78a34b156ab54
                     print("les lignes du plateau ne vont que de 1 à 8 ")
 
                 else:
@@ -51,7 +36,6 @@ def commande():
 
         except IndexError:
             print("Il faut quatre arguments pour jouer et séparer d'un espace les coordonnées de départ et d'arriver")
-<<<<<<< HEAD
             Valable = False
 
         except ValueError:
@@ -61,17 +45,6 @@ def commande():
         except KeyError:
             print("Voici un exemple de coup valide : 1a 3a")
             Valable = False
-=======
-            Valable=False
-
-        except ValueError:
-            print("Voici un exemple de coup valide : 4c 6d")
-            Valable=False
-
-        except KeyError:
-            print("Voici un exemple de coup valide : 1a 3a")
-            Valable=False
->>>>>>> 10648ab94bedfdacfb5838a893c78a34b156ab54
 
 
 def EchecMat():
