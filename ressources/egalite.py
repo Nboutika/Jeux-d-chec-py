@@ -23,10 +23,10 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
             historiqueReineB.clear()
             coupJouerTripleBlanc=False
 
-            if len(historiqueTourB)>12 :
+            if len(historiqueTourB)> 24 :
                 historiqueTourB[:4]=[]
 
-            if len(historiqueTourB) == 12 :
+            if len(historiqueTourB) == 24 :
                 if (historiqueTourB[0]==historiqueTourB[6]==historiqueTourB[8]) and (historiqueTourB[1]==historiqueTourB[7]==historiqueTourB[9]) and (historiqueTourB[2]==historiqueTourB[4]==historiqueTourB[10]) and (historiqueTourB[3]==historiqueTourB[5]==historiqueTourB[11]):
                     coupJouerTripleBlanc=True
 
@@ -44,11 +44,11 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
             historiqueReineB.clear()
             coupJouerTripleBlanc=False
 
-            if len(historiqueCavalierB)>12 :
+            if len(historiqueCavalierB)> 24 :
                 historiqueCavalierB[:4]=[]
 
-            if len(historiqueCavalierB) == 12 :
-                if (historiqueCavalierB[0]==historiqueCavalierB[6]==historiqueCavalierB[8]) and (historiqueCavalierB[1]==historiqueCavalierB[7]==historiqueCavalierB[9]) and (historiqueCavalierB[2]==historiqueCavalierB[4]==historiqueCavalierB[10]) and (historiqueCavalierB[3]==historiqueCavalierB[5]==historiqueCavalierB[11]):
+            if len(historiqueCavalierB) == 24 :
+                if (historiqueCavalierB[0]==historiqueCavalierB[6]==historiqueCavalierB[8]==historiqueCavalierB[14]==historiqueCavalierB[16]==historiqueCavalierB[22]) and (historiqueCavalierB[1]==historiqueCavalierB[7]==historiqueCavalierB[9]==historiqueCavalierB[15]==historiqueCavalierB[17]==historiqueCavalierB[23]) and (historiqueCavalierB[2]==historiqueCavalierB[4]==historiqueCavalierB[10]==historiqueCavalierB[12]==historiqueCavalierB[18]==historiqueCavalierB[20]) and (historiqueCavalierB[3]==historiqueCavalierB[5]==historiqueCavalierB[11]==historiqueCavalierB[13]==historiqueCavalierB[19]==historiqueCavalierB[21]):
                     coupJouerTripleBlanc=True
 
         
@@ -65,10 +65,10 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
             historiqueReineB.clear()
             coupJouerTripleBlanc=False
 
-            if len(historiqueFouB)>12 :
+            if len(historiqueFouB)> 24 :
                 historiqueFouB[:4]=[]
 
-            if len(historiqueFouB) == 12 :
+            if len(historiqueFouB) == 24 :
                 if (historiqueFouB[0]==historiqueFouB[6]==historiqueFouB[8]) and (historiqueFouB[1]==historiqueFouB[7]==historiqueFouB[9]) and (historiqueFouB[2]==historiqueFouB[4]==historiqueFouB[10]) and (historiqueFouB[3]==historiqueFouB[5]==historiqueFouB[11]):
                     coupJouerTripleBlanc=True
 
@@ -86,10 +86,10 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
             historiqueReineB.clear()
             coupJouerTripleBlanc=False
 
-            if len(historiqueRoiB)>12 :
+            if len(historiqueRoiB)> 24 :
                 historiqueRoiB[:4]=[]
 
-            if len(historiqueRoiB) == 12 :
+            if len(historiqueRoiB) == 24 :
                 if (historiqueRoiB[0]==historiqueRoiB[6]==historiqueRoiB[8]) and (historiqueRoiB[1]==historiqueRoiB[7]==historiqueRoiB[9]) and (historiqueRoiB[2]==historiqueRoiB[4]==historiqueRoiB[10]) and (historiqueRoiB[3]==historiqueRoiB[5]==historiqueRoiB[11]):
                     coupJouerTripleBlanc=True
 
@@ -107,10 +107,10 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
             historiqueTourB.clear()
             coupJouerTripleBlanc=False
 
-            if len(historiqueReineB)>12 :
+            if len(historiqueReineB)>24 :
                 historiqueReineB[:4]=[]
 
-            if len(historiqueReineB) == 12 :
+            if len(historiqueReineB) == 24 :
                 if (historiqueReineB[0]==historiqueReineB[6]==historiqueReineB[8]) and (historiqueReineB[1]==historiqueReineB[7]==historiqueReineB[9]) and (historiqueReineB[2]==historiqueReineB[4]==historiqueReineB[10]) and (historiqueReineB[3]==historiqueReineB[5]==historiqueReineB[11]):
                     coupJouerTripleBlanc=True
 
@@ -138,10 +138,10 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
             historiqueReineN.clear()
             coupJouerTripleNoir=False
 
-            if len(historiqueTourN)>12 :
+            if len(historiqueTourN)> 24 :
                 historiqueTourN[:4]=[]
 
-            if len(historiqueTourN) == 12 :
+            if len(historiqueTourN) == 24 :
                 if (historiqueTourN[0]==historiqueTourN[6]==historiqueTourN[8]) and (historiqueTourN[1]==historiqueTourN[7]==historiqueTourN[9]) and (historiqueTourN[2]==historiqueTourN[4]==historiqueTourN[10]) and (historiqueTourN[3]==historiqueTourN[5]==historiqueTourN[11]):
                     coupJouerTripleNoir=True
 
@@ -159,11 +159,11 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
             historiqueReineN.clear()
             coupJouerTripleNoir=False
 
-            if len(historiqueCavalierN)>12 :
+            if len(historiqueCavalierN)> 24 :
                 historiqueCavalierN[:4]=[]
 
-            if len(historiqueCavalierN) == 12 :
-                if (historiqueCavalierN[0]==historiqueCavalierN[6]==historiqueCavalierN[8]) and (historiqueCavalierN[1]==historiqueCavalierN[7]==historiqueCavalierN[9]) and (historiqueCavalierN[2]==historiqueCavalierN[4]==historiqueCavalierN[10]) and (historiqueCavalierN[3]==historiqueCavalierN[5]==historiqueCavalierN[11]):
+            if len(historiqueCavalierN) == 24 :
+                if (historiqueCavalierN[0]==historiqueCavalierN[6]==historiqueCavalierN[8]==historiqueCavalierN[14]==historiqueCavalierN[16]==historiqueCavalierN[22]) and (historiqueCavalierN[1]==historiqueCavalierN[7]==historiqueCavalierN[9]==historiqueCavalierN[15]==historiqueCavalierN[17]==historiqueCavalierN[23]) and (historiqueCavalierN[2]==historiqueCavalierN[4]==historiqueCavalierN[10]==historiqueCavalierN[12]==historiqueCavalierN[18]==historiqueCavalierN[20]) and (historiqueCavalierN[3]==historiqueCavalierN[5]==historiqueCavalierN[11]==historiqueCavalierN[13]==historiqueCavalierN[19]==historiqueCavalierN[21]):
                     coupJouerTripleNoir=True
 
 
@@ -180,10 +180,10 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
             historiqueReineN.clear()
             coupJouerTripleNoir=False
 
-            if len(historiqueFouN)>12 :
+            if len(historiqueFouN)> 24 :
                 historiqueFouN[:4]=[]
 
-            if len(historiqueFouN) == 12 :
+            if len(historiqueFouN) == 24 :
                 if (historiqueFouN[0]==historiqueFouN[6]==historiqueFouN[8]) and (historiqueFouN[1]==historiqueFouN[7]==historiqueFouN[9]) and (historiqueFouN[2]==historiqueFouN[4]==historiqueFouN[10]) and (historiqueFouN[3]==historiqueFouN[5]==historiqueFouN[11]):
                     coupJouerTripleNoir=True
 
@@ -201,10 +201,10 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
             historiqueReineN.clear()
             coupJouerTripleNoir=False
 
-            if len(historiqueRoiN)>12 :
+            if len(historiqueRoiN)> 24 :
                 historiqueRoiN[:4]=[]
 
-            if len(historiqueRoiN) == 12 :
+            if len(historiqueRoiN) == 24 :
                 if (historiqueRoiN[0]==historiqueRoiN[6]==historiqueRoiN[8]) and (historiqueRoiN[1]==historiqueRoiN[7]==historiqueRoiN[9]) and (historiqueRoiN[2]==historiqueRoiN[4]==historiqueRoiN[10]) and (historiqueRoiN[3]==historiqueRoiN[5]==historiqueRoiN[11]):
                     coupJouerTripleNoir=True
 
@@ -222,10 +222,10 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
             historiqueTourN.clear()
             coupJouerTripleNoir=False
 
-            if len(historiqueReineN)>12 :
+            if len(historiqueReineN)> 24 :
                 historiqueReineN[:4]=[]
 
-            if len(historiqueReineN) == 12 :
+            if len(historiqueReineN) == 24 :
                 if (historiqueReineN[0]==historiqueReineN[6]==historiqueReineN[8]) and (historiqueReineN[1]==historiqueReineN[7]==historiqueReineN[9]) and (historiqueReineN[2]==historiqueReineN[4]==historiqueReineN[10]) and (historiqueReineN[3]==historiqueReineN[5]==historiqueReineN[11]):
                     coupJouerTripleNoir=True
 
