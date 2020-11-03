@@ -87,19 +87,29 @@ def pionConvertir():
         if boardCoord[7][colonnePlateau] == boardVariable.np :
             boardCoord[7][colonnePlateau] = boardVariable.nd
 
+
 def roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive):
-    if roqueCouleur == 1:
-        print("roque noir")
+    if roqueCouleur == 1:     #Roque noir
         if colonneArrive == 0:
-            print("Le grand roque")
+            print("Le grand roque noir")
+            boardCoord[ligneArrive][3] = boardCoord[ligneArrive][colonneArrive]
+            boardCoord[ligne][2] = boardCoord[ligne][colonne]
         else:
-            print("le petit roque")
-    else : 
-        print("le roque blanc")
+            print("le petit roque noir")
+            boardCoord[ligneArrive][5] = boardCoord[ligneArrive][colonneArrive]
+            boardCoord[ligne][6] = boardCoord[ligne][colonne]
+    else :                  #Roque blanc 
         if colonneArrive == 0:
-            print("Le grand roque")
+            print("Le grand roque blanc")
+            boardCoord[ligneArrive][3] = boardCoord[ligneArrive][colonneArrive]
+            boardCoord[ligne][2] = boardCoord[ligne][colonne]
         else:
-            print("le petit roque")
+            print("le petit roque blanc")
+            boardCoord[ligneArrive][5] = boardCoord[ligneArrive][colonneArrive]
+            boardCoord[ligne][6] = boardCoord[ligne][colonne]
+
+    boardCoord[ligne][colonne] = "-"
+    boardCoord[ligneArrive][colonneArrive] = "-"
 
 
 
