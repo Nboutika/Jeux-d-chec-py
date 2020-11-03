@@ -111,10 +111,10 @@ def Jeux():
                     if boardCoord[ligne][colonne] == "♚":
                         if boardCoord[ligneArrive][colonneArrive] =="♜" and roiNoirJouer == False :
                             roqueCouleur=1
-                            roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive)                                                                       
-                            coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                            tourjouez = True
-                            roiNoirJouer = True
+                            if roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive) :                                                                      
+                                coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                tourjouez = True
+                                roiNoirJouer = True
                         else:
                             if roi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
                                 Deplacement(ligne, colonne,
@@ -181,10 +181,10 @@ def Jeux():
                         if boardCoord[ligne][colonne] == "♔":
                             if boardCoord[ligneArrive][colonneArrive] =="♖" and roiBlancJouer == False:
                                 roqueCouleur=0
-                                roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive)                                                                       
-                                coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                                tourjouez = True
-                                roiBlancJouer = True
+                                if roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive) :                                                                      
+                                    coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                    tourjouez = True
+                                    roiBlancJouer = True
                             else :
                                 if roi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                                     Deplacement(ligne, colonne,

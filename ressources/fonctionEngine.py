@@ -1,6 +1,7 @@
 from ressources.board import boardCoord, pieceBlanc, pieceNoir, dictionnaireIndex
 import ressources.board as boardVariable
 from ressources.egalite import egalite
+from pieces.roque import roqueRoi
 """
 ----------------------------------------------------------------
 fonctionEngine.py sert à contenir les fonctions appelées par engine.py il contient:
@@ -89,27 +90,44 @@ def pionConvertir():
 
 
 def roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive):
+    roqueFait=False
     if roqueCouleur == 1:     #Roque noir
         if colonneArrive == 0:
-            print("Le grand roque noir")
-            boardCoord[ligneArrive][3] = boardCoord[ligneArrive][colonneArrive]
-            boardCoord[ligne][2] = boardCoord[ligne][colonne]
+            if roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
+                boardCoord[ligneArrive][3] = boardCoord[ligneArrive][colonneArrive]
+                boardCoord[ligne][2] = boardCoord[ligne][colonne]
+                roqueFait=True
+                print("Vous avez fait le grand roque")
         else:
-            print("le petit roque noir")
-            boardCoord[ligneArrive][5] = boardCoord[ligneArrive][colonneArrive]
-            boardCoord[ligne][6] = boardCoord[ligne][colonne]
+            if colonneArrive == 7:
+                if roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
+                    boardCoord[ligneArrive][5] = boardCoord[ligneArrive][colonneArrive]
+                    boardCoord[ligne][6] = boardCoord[ligne][colonne]
+                    roqueFait=True
+                    print("Vous avez fait le petit roque")
     else :                  #Roque blanc 
         if colonneArrive == 0:
-            print("Le grand roque blanc")
-            boardCoord[ligneArrive][3] = boardCoord[ligneArrive][colonneArrive]
-            boardCoord[ligne][2] = boardCoord[ligne][colonne]
+            if roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
+                boardCoord[ligneArrive][3] = boardCoord[ligneArrive][colonneArrive]
+                boardCoord[ligne][2] = boardCoord[ligne][colonne]
+                roqueFait=True
+                print("Vous avez fait le grand roque")
         else:
-            print("le petit roque blanc")
-            boardCoord[ligneArrive][5] = boardCoord[ligneArrive][colonneArrive]
-            boardCoord[ligne][6] = boardCoord[ligne][colonne]
+            if colonneArrive == 7:
+                if roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
+                    boardCoord[ligneArrive][5] = boardCoord[ligneArrive][colonneArrive]
+                    boardCoord[ligne][6] = boardCoord[ligne][colonne]
+                    roqueFait=True
+                    print("Vous avez fait le petit roque")
 
-    boardCoord[ligne][colonne] = "-"
-    boardCoord[ligneArrive][colonneArrive] = "-"
+    if roqueFait == True:
+        boardCoord[ligne][colonne] = "-"
+        boardCoord[ligneArrive][colonneArrive] = "-"
+        return True
+    else :
+        print("Le roque n'est pas possible ")
+        return False
+
 
 
 
