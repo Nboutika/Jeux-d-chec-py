@@ -111,9 +111,7 @@ def Jeux():
                     if boardCoord[ligne][colonne] == "♚":
                         if boardCoord[ligneArrive][colonneArrive] =="♜" and roiNoirJouer == False :
                             roqueCouleur=1
-                            roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive)                                                                        #Ajout du roque en cours
-                            Deplacement(ligne, colonne,
-                                        ligneArrive, colonneArrive)
+                            roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive)                                                                       
                             coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                             tourjouez = True
                             roiNoirJouer = True
@@ -183,9 +181,7 @@ def Jeux():
                         if boardCoord[ligne][colonne] == "♔":
                             if boardCoord[ligneArrive][colonneArrive] =="♖" and roiBlancJouer == False:
                                 roqueCouleur=0
-                                roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive)                                                                        #Ajout du roque en cours
-                                Deplacement(ligne, colonne,
-                                            ligneArrive, colonneArrive)
+                                roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive)                                                                       
                                 coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                                 tourjouez = True
                                 roiBlancJouer = True
