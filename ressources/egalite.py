@@ -1,27 +1,33 @@
 from ressources.board import *
 
+def clearTableauB(historiquexB):
+    if historiquexB != "historiqueTourB" : historiqueTourB.clear()
+    if historiquexB != "historiqueCavalierB" : historiqueCavalierB.clear()
+    if historiquexB != "historiqueFouB" : historiqueFouB.clear()
+    if historiquexB != "historiqueRoiB" : historiqueRoiB.clear()
+    if historiquexB != "historiqueReineB" : historiqueReineB.clear()
+    coupJouerTripleBlanc=False
+    return(coupJouerTripleBlanc)
+
+def clearTableauN(historiquexN):
+    if historiquexN != "historiqueTourN" : historiqueTourN.clear()
+    if historiquexN != "historiqueCavalierN" : historiqueCavalierN.clear()
+    if historiquexN != "historiqueFouN" : historiqueFouN.clear()
+    if historiquexN != "historiqueRoiN" : historiqueRoiN.clear()
+    if historiquexN != "historiqueReineN" : historiqueReineN.clear()
+    coupJouerTripleNoir=False
+    return(coupJouerTripleNoir)
+
 def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
     if pieceJouer in pieceBlanc :    #correspond aux blancs
         if pieceJouer ==bp: #correspond au pion blanc 
-            historiqueCavalierB.clear()
-            historiqueFouB.clear()
-            historiqueRoiB.clear()
-            historiqueTourB.clear()
-            historiqueReineB.clear()
-            coupJouerTripleBlanc=False
+
+            coupJouerTripleBlanc = clearTableauB("all")
 
         if pieceJouer ==bt:  #correspond a la tour blanche
 
-            historiqueTourB.append(ligne)
-            historiqueTourB.append(colonne)
-            historiqueTourB.append(ligneArrive)
-            historiqueTourB.append(colonneArrive)
-
-            historiqueCavalierB.clear()
-            historiqueFouB.clear()
-            historiqueRoiB.clear()
-            historiqueReineB.clear()
-            coupJouerTripleBlanc=False
+            historiqueTourB.extend([ligne, colonne, ligneArrive, colonneArrive])
+            coupJouerTripleBlanc = clearTableauB("historiqueTourB")
 
             if len(historiqueTourB)> 24 :
                 historiqueTourB[:4]=[]
@@ -33,16 +39,8 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
 
         if pieceJouer ==bc:  #correspond au cavalier blanc 
 
-            historiqueCavalierB.append(ligne)
-            historiqueCavalierB.append(colonne)
-            historiqueCavalierB.append(ligneArrive)
-            historiqueCavalierB.append(colonneArrive)
-
-            historiqueTourB.clear()
-            historiqueFouB.clear()
-            historiqueRoiB.clear()
-            historiqueReineB.clear()
-            coupJouerTripleBlanc=False
+            historiqueCavalierB.extend([ligne, colonne, ligneArrive, colonneArrive])
+            coupJouerTripleBlanc = clearTableauB("historiqueCavalierB")
 
             if len(historiqueCavalierB)> 24 :
                 historiqueCavalierB[:4]=[]
@@ -54,16 +52,8 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
         
         if pieceJouer ==bf:  #correspond au fou blanc 
 
-            historiqueFouB.append(ligne)
-            historiqueFouB.append(colonne)
-            historiqueFouB.append(ligneArrive)
-            historiqueFouB.append(colonneArrive)
-
-            historiqueCavalierB.clear()
-            historiqueTourB.clear()
-            historiqueRoiB.clear()
-            historiqueReineB.clear()
-            coupJouerTripleBlanc=False
+            historiqueFouB.extend([ligne, colonne, ligneArrive, colonneArrive])
+            coupJouerTripleBlanc = clearTableauB("historiqueFouB")
 
             if len(historiqueFouB)> 24 :
                 historiqueFouB[:4]=[]
@@ -75,16 +65,8 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
 
         if pieceJouer ==br:  #correspond au roi blanc 
 
-            historiqueRoiB.append(ligne)
-            historiqueRoiB.append(colonne)
-            historiqueRoiB.append(ligneArrive)
-            historiqueRoiB.append(colonneArrive)
-
-            historiqueCavalierB.clear()
-            historiqueFouB.clear()
-            historiqueTourB.clear()
-            historiqueReineB.clear()
-            coupJouerTripleBlanc=False
+            historiqueRoiB.extend([ligne, colonne, ligneArrive, colonneArrive])
+            coupJouerTripleBlanc = clearTableauB("historiqueRoiB")
 
             if len(historiqueRoiB)> 24 :
                 historiqueRoiB[:4]=[]
@@ -96,16 +78,8 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
 
         if pieceJouer ==bd:  #correspond au la reine blanche
 
-            historiqueReineB.append(ligne)
-            historiqueReineB.append(colonne)
-            historiqueReineB.append(ligneArrive)
-            historiqueReineB.append(colonneArrive)
-
-            historiqueCavalierB.clear()
-            historiqueFouB.clear()
-            historiqueRoiB.clear()
-            historiqueTourB.clear()
-            coupJouerTripleBlanc=False
+            historiqueReineB.extend([ligne, colonne, ligneArrive, colonneArrive])
+            coupJouerTripleBlanc = clearTableauB("historiqueReineB")
 
             if len(historiqueReineB)>24 :
                 historiqueReineB[:4]=[]
@@ -118,25 +92,12 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
 
     else:
         if pieceJouer ==np: #correspond au pion bnoir
-            historiqueCavalierN.clear()
-            historiqueFouN.clear()
-            historiqueRoiN.clear()
-            historiqueTourN.clear()
-            historiqueReineN.clear()
-            coupJouerTripleNoir=False
+            coupJouerTripleNoir = clearTableauN("all")
 
         if pieceJouer ==nt:  #correspond a la tour noir
 
-            historiqueTourN.append(ligne)
-            historiqueTourN.append(colonne)
-            historiqueTourN.append(ligneArrive)
-            historiqueTourN.append(colonneArrive)
-
-            historiqueCavalierN.clear()
-            historiqueFouN.clear()
-            historiqueRoiN.clear()
-            historiqueReineN.clear()
-            coupJouerTripleNoir=False
+            historiqueTourN.extend([ligne, colonne, ligneArrive, colonneArrive])
+            coupJouerTripleNoir = clearTableauN("historiqueTourN")
 
             if len(historiqueTourN)> 24 :
                 historiqueTourN[:4]=[]
@@ -148,16 +109,8 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
 
         if pieceJouer ==nc:  #correspond au cavalier noir
 
-            historiqueCavalierN.append(ligne)
-            historiqueCavalierN.append(colonne)
-            historiqueCavalierN.append(ligneArrive)
-            historiqueCavalierN.append(colonneArrive)
-
-            historiqueTourN.clear()
-            historiqueFouN.clear()
-            historiqueRoiN.clear()
-            historiqueReineN.clear()
-            coupJouerTripleNoir=False
+            historiqueCavalierN.extend([ligne, colonne, ligneArrive, colonneArrive])
+            coupJouerTripleNoir = clearTableauN("historiqueCavalierN")
 
             if len(historiqueCavalierN)> 24 :
                 historiqueCavalierN[:4]=[]
@@ -169,16 +122,8 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
 
         if pieceJouer ==nf:  #correspond au fou noir
 
-            historiqueFouN.append(ligne)
-            historiqueFouN.append(colonne)
-            historiqueFouN.append(ligneArrive)
-            historiqueFouN.append(colonneArrive)
-
-            historiqueCavalierN.clear()
-            historiqueTourN.clear()
-            historiqueRoiN.clear()
-            historiqueReineN.clear()
-            coupJouerTripleNoir=False
+            historiqueFouN.extend([ligne, colonne, ligneArrive, colonneArrive])
+            coupJouerTripleNoir = clearTableauN("historiqueFouN")
 
             if len(historiqueFouN)> 24 :
                 historiqueFouN[:4]=[]
@@ -190,16 +135,8 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
 
         if pieceJouer ==nr:  #correspond au roi noir
 
-            historiqueRoiN.append(ligne)
-            historiqueRoiN.append(colonne)
-            historiqueRoiN.append(ligneArrive)
-            historiqueRoiN.append(colonneArrive)
-
-            historiqueCavalierN.clear()
-            historiqueFouN.clear()
-            historiqueTourN.clear()
-            historiqueReineN.clear()
-            coupJouerTripleNoir=False
+            historiqueRoiN.extend([ligne, colonne, ligneArrive, colonneArrive])
+            coupJouerTripleNoir = clearTableauN("historiqueRoiN")
 
             if len(historiqueRoiN)> 24 :
                 historiqueRoiN[:4]=[]
@@ -211,16 +148,8 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
 
         if pieceJouer ==nd:  #correspond a la reine noir
 
-            historiqueReineN.append(ligne)
-            historiqueReineN.append(colonne)
-            historiqueReineN.append(ligneArrive)
-            historiqueReineN.append(colonneArrive)
-
-            historiqueCavalierN.clear()
-            historiqueFouN.clear()
-            historiqueRoiN.clear()
-            historiqueTourN.clear()
-            coupJouerTripleNoir=False
+            historiqueReineN.extend([ligne, colonne, ligneArrive, colonneArrive])
+            coupJouerTripleNoir = clearTableauN("historiqueReineN")
 
             if len(historiqueReineN)> 24 :
                 historiqueReineN[:4]=[]
@@ -230,3 +159,5 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
                     coupJouerTripleNoir=True
 
         return(coupJouerTripleNoir)
+
+

@@ -128,7 +128,10 @@ def roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive):
         print("Le roque n'est pas possible ")
         return False
 
-
-
-
+def coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer): 
+    Deplacement(ligne, colonne,
+                ligneArrive, colonneArrive)
+    coupJouerTriple = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+    tourjouez = True
+    return(coupJouerTriple, tourjouez)
 

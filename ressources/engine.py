@@ -1,5 +1,5 @@
 from ressources.board import affichageBoard, boardCoord
-from ressources.fonctionEngine import commande, EchecMat, couleurJouez, Deplacement, pionConvertir, egalite, roque
+from ressources.fonctionEngine import commande, EchecMat, couleurJouez, Deplacement, pionConvertir, egalite, roque, coupJouer
 from pieces.tour import tour
 from pieces.fou import fou
 from pieces.roi import roi
@@ -70,40 +70,28 @@ def Jeux():
                 if noir == True and nombredetour % 2 == 1:
                     if boardCoord[ligne][colonne] == "♟︎":
                         if pion(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
-                            Deplacement(ligne, colonne,
-                                        ligneArrive, colonneArrive)
-                            coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                            tourjouez = True
+                            coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                         else:
                             print(
                                 "Le pion noir  ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                     if boardCoord[ligne][colonne] == "♜":
                         if tour(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
-                            Deplacement(ligne, colonne,
-                                        ligneArrive, colonneArrive)
-                            coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                            tourjouez = True
+                            coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                         else:
                             print(
                                 "La tour ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                     if boardCoord[ligne][colonne] == "♞":
                         if cavalier(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
-                            Deplacement(ligne, colonne,
-                                        ligneArrive, colonneArrive)
-                            coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                            tourjouez = True
+                            coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                         else:
                             print(
                                 "Le cavalier ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                     if boardCoord[ligne][colonne] == "♝":
                         if fou(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
-                            Deplacement(ligne, colonne,
-                                        ligneArrive, colonneArrive)
-                            coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                            tourjouez = True
+                            coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                         else:
                             print(
                                 "Le fou ne peut pas se déplacer comme ça, veuillez faire un autre coup")
@@ -117,10 +105,7 @@ def Jeux():
                                 roiNoirJouer = True
                         else:
                             if roi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
-                                Deplacement(ligne, colonne,
-                                            ligneArrive, colonneArrive)
-                                coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                                tourjouez = True
+                                coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                                 roiNoirJouer = True
                             else:
                                 print(
@@ -128,10 +113,7 @@ def Jeux():
 
                     if boardCoord[ligne][colonne] == "♛":
                         if dame(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
-                            Deplacement(ligne, colonne,
-                                        ligneArrive, colonneArrive)
-                            coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                            tourjouez = True
+                            coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                         else:
                             print(
                                 "La reine ne peut pas se déplacer comme ça, veuillez faire un autre coup")
@@ -140,40 +122,28 @@ def Jeux():
                     if blanc == True and nombredetour % 2 == 0:
                         if boardCoord[ligne][colonne] == "♙":
                             if pion(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
-                                Deplacement(ligne, colonne,
-                                            ligneArrive, colonneArrive)
-                                coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                                tourjouez = True
+                                coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                             else:
                                 print(
                                     "Le pion blanc ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                         if boardCoord[ligne][colonne] == "♖":
                             if tour(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
-                                Deplacement(ligne, colonne,
-                                            ligneArrive, colonneArrive)
-                                coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                                tourjouez = True
+                                coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                             else:
                                 print(
                                     "La tour ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                         if boardCoord[ligne][colonne] == "♘":
                             if cavalier(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
-                                Deplacement(ligne, colonne,
-                                            ligneArrive, colonneArrive)
-                                coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                                tourjouez = True
+                                coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                             else:
                                 print(
                                     "Le cavalier ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
                         if boardCoord[ligne][colonne] == "♗":
                             if fou(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
-                                Deplacement(ligne, colonne,
-                                            ligneArrive, colonneArrive)
-                                coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                                tourjouez = True
+                                coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                             else:
                                 print(
                                     "Le fou ne peut pas se déplacer comme ça, veuillez faire un autre coup")
@@ -187,10 +157,7 @@ def Jeux():
                                     roiBlancJouer = True
                             else :
                                 if roi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
-                                    Deplacement(ligne, colonne,
-                                                ligneArrive, colonneArrive)
-                                    coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                                    tourjouez = True
+                                    coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                                     roiBlancJouer = True
                                 else:
                                     print(
@@ -198,10 +165,7 @@ def Jeux():
 
                         if boardCoord[ligne][colonne] == "♕":
                             if dame(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
-                                Deplacement(ligne, colonne,
-                                            ligneArrive, colonneArrive)
-                                coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                                tourjouez = True
+                                coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                             else:
                                 print(
                                     "La reine ne peut pas se déplacer comme ça, veuillez faire un autre coup")
