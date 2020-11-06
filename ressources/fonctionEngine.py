@@ -1,4 +1,7 @@
 from ressources.board import boardCoord, pieceBlanc, pieceNoir, dictionnaireIndex
+import ressources.board as boardVariable
+from ressources.egalite import egalite
+from pieces.roque import roqueRoi
 """
 ----------------------------------------------------------------
 fonctionEngine.py sert à contenir les fonctions appelées par engine.py il contient:
@@ -22,11 +25,11 @@ def commande():
                     "Pour jouer utiliser |ligne de la pièce colonne de la pièce|     |ligne d'arrivé colonne d'arrivé|")
                 coordonnées = input("Jouer votre coup : ").split(" ")
 
-                ligne = int(coordonnées[0][0])-1
-                ligneArrive = int(coordonnées[1][0])-1
-                colonne = int(dictionnaireIndex[coordonnées[0][1].upper()])
+                ligne = int(coordonnées[0][1])-1
+                ligneArrive = int(coordonnées[1][1])-1
+                colonne = int(dictionnaireIndex[coordonnées[0][0].upper()])
                 colonneArrive = int(
-                    dictionnaireIndex[coordonnées[1][1].upper()])
+                    dictionnaireIndex[coordonnées[1][0].upper()])
                 if (ligne < 0) or (ligne > 7) or (ligneArrive < 0) or (ligneArrive > 7):
                     Valable = False
                     print("les lignes du plateau ne vont que de 1 à 8 ")
@@ -52,9 +55,9 @@ def EchecMat():
     roiBlanc = False
     for x in range(8):
         for y in range(8):
-            if boardCoord[x][y] == "♔":
-                roiNoir = True
             if boardCoord[x][y] == "♚":
+                roiNoir = True
+            if boardCoord[x][y] == "♔":
                 roiBlanc = True
     return(roiBlanc, roiNoir)
 
@@ -77,3 +80,60 @@ def couleurJouez(ligne, colonne):
 def Deplacement(ligne, colonne, ligneArrive, colonneArrive):
     boardCoord[ligneArrive][colonneArrive] = boardCoord[ligne][colonne]
     boardCoord[ligne][colonne] = "-"
+
+
+def pionConvertir():
+    for colonnePlateau in range(8):
+        if boardCoord[0][colonnePlateau] == boardVariable.bp:
+            boardCoord[0][colonnePlateau] = boardVariable.bd
+        if boardCoord[7][colonnePlateau] == boardVariable.np:
+            boardCoord[7][colonnePlateau] = boardVariable.nd
+
+
+def roque(roqueCouleur, ligne, colonne, ligneArrive, colonneArrive):
+    roqueFait = False
+    if roqueCouleur == 1:  # Roque noir
+        if colonneArrive == 0:
+            if roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
+                boardCoord[ligneArrive][3] = boardCoord[ligneArrive][colonneArrive]
+                boardCoord[ligne][2] = boardCoord[ligne][colonne]
+                roqueFait = True
+                print("Vous avez fait le grand roque")
+        else:
+            if colonneArrive == 7:
+                if roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
+                    boardCoord[ligneArrive][5] = boardCoord[ligneArrive][colonneArrive]
+                    boardCoord[ligne][6] = boardCoord[ligne][colonne]
+                    roqueFait = True
+                    print("Vous avez fait le petit roque")
+    else:  # Roque blanc
+        if colonneArrive == 0:
+            if roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
+                boardCoord[ligneArrive][3] = boardCoord[ligneArrive][colonneArrive]
+                boardCoord[ligne][2] = boardCoord[ligne][colonne]
+                roqueFait = True
+                print("Vous avez fait le grand roque")
+        else:
+            if colonneArrive == 7:
+                if roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
+                    boardCoord[ligneArrive][5] = boardCoord[ligneArrive][colonneArrive]
+                    boardCoord[ligne][6] = boardCoord[ligne][colonne]
+                    roqueFait = True
+                    print("Vous avez fait le petit roque")
+
+    if roqueFait == True:
+        boardCoord[ligne][colonne] = "-"
+        boardCoord[ligneArrive][colonneArrive] = "-"
+        return True
+    else:
+        print("Le roque n'est pas possible ")
+        return False
+
+
+def coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
+    Deplacement(ligne, colonne,
+                ligneArrive, colonneArrive)
+    coupJouerTriple = egalite(
+        ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+    tourjouez = True
+    return(coupJouerTriple, tourjouez)

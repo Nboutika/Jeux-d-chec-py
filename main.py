@@ -1,4 +1,3 @@
-
 from ressources.engine import Jeux
 from ressources.board import affichageBoard
 

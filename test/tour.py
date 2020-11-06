@@ -1,17 +1,16 @@
-from ressources.vide import vide
-from ressources.board import boardCoord, pieceBlanc, pieceNoir
-from ressources.boardlimit import boardlimit
+from vide import vide
+from board import boardCoord, pieceBlanc, pieceNoir
+from boardlimit import boardlimit
 
 
-def dame(boardCoord,  ligne, colonne, couleur):
+def tour(boardCoord, ligne, colonne, couleur):
     legalmoves = []
     if couleur == "n":
         color = pieceBlanc
     else:
         color = pieceNoir
     postour = [ligne, colonne]
-    deplacement = [[1, 0], [0, 1], [-1, 0],
-                   [0, -1], [1, 1], [1, -1], [-1, -1], [-1, 1]]
+    deplacement = [[1, 0], [0, 1], [-1, 0], [0, -1]]
     for possibilite in deplacement:
         i = 1
         while True:
@@ -25,3 +24,4 @@ def dame(boardCoord,  ligne, colonne, couleur):
                     legalmoves.append([row, column])
                 break
     return legalmoves
+
