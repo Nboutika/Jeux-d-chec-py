@@ -1,5 +1,5 @@
 from ressources.board import affichageBoard, boardCoord
-from ressources.fonctionEngine import commande, EchecMat, couleurJouez, Deplacement, pionConvertir, egalite, roque, coupJouer
+from ressources.fonctionEngine import commande, roiPresent, couleurJouez, Deplacement, pionConvertir, egalite, roque, coupJouer
 from pieces.tour import tour
 from pieces.fou import fou
 from pieces.roi import roi
@@ -194,7 +194,7 @@ def Jeux():
                     else:
                         print("C'est au blanc de jouer")
 
-            roiBlanc, roiNoir = EchecMat()
+            roiBlanc, roiNoir = roiPresent()
 
     if egaliteMouvements == False:
         print("La partie se finit sur égalité, car vous avez répété 3fois les mêmes déplacements")

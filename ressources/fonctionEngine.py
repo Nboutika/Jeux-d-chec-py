@@ -50,7 +50,7 @@ def commande():
             Valable = False
 
 
-def EchecMat():
+def roiPresent():
     roiNoir = False
     roiBlanc = False
     for x in range(8):
