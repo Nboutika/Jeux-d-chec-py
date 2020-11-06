@@ -200,7 +200,7 @@ def Jeux():
                             if dame(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                                 Deplacement(ligne, colonne,
                                             ligneArrive, colonneArrive)
-                                coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                                 tourjouez = True
                             else:
                                 print(
