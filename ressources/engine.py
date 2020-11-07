@@ -175,6 +175,8 @@ def Jeux():
                             print("Vous ne pouvez pas être en echec a la fin de votre tour")
 
                 if tourjouez == True:
+                    if Echec("n"): print("Le roi noir est en échec")
+                    if Echec("b"): print("Le roi blanc est en échec")
                     nombredetour = nombredetour+1
                     print("Vous êtes au tour ", nombredetour)
                     pionConvertir()
