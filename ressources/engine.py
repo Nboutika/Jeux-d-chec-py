@@ -6,6 +6,7 @@ from pieces.roi import roi
 from pieces.cavalier import cavalier
 from pieces.dame import dame
 from pieces.pion import pion
+from ressources.echec import Echec, coordRoi, coupPossible
 from ressources.egalite import egalite
 """
 ----------------------------------------------------------------
@@ -53,7 +54,7 @@ def Jeux():
     roiBlancJouer = False
     roiNoirJouer = False
     print("Pour jouer utiliser |colonne de la pièce ligne de la pièce|     |colonne d'arrivé ligne d'arrivé|")
-    
+
     while roiNoir and roiBlanc and egaliteMouvements == True:
         tourjouez = False
         ligne, colonne, ligneArrive, colonneArrive = commande()
