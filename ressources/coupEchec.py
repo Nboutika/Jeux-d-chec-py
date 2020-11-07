@@ -2,14 +2,16 @@ from ressources.board import boardCoord
 from ressources.echec import Echec, coupPossible, coordRoi
 
 def coupEchec(ligne, colonne, ligneArrive, colonneArrive, color):
-
-    stockPiece = fauxDeplacementEchec(ligne, colonne, ligneArrive, colonneArrive)
-    if Echec(color) == False:
-        fauxDeplacementEchecInverse(ligne, colonne, ligneArrive, colonneArrive, stockPiece)
+    if ( boardCoord[ligneArrive][colonneArrive]== "♜" and boardCoord[ligne][colonne] == "♚" ) or ( boardCoord[ligneArrive][colonneArrive]== "♖" and boardCoord[ligne][colonne] == "♔" ) :
         return True
     else :
-        fauxDeplacementEchecInverse(ligne, colonne, ligneArrive, colonneArrive, stockPiece)
-        return False
+        stockPiece = fauxDeplacementEchec(ligne, colonne, ligneArrive, colonneArrive)
+        if Echec(color) == False:
+            fauxDeplacementEchecInverse(ligne, colonne, ligneArrive, colonneArrive, stockPiece)
+            return True
+        else :
+            fauxDeplacementEchecInverse(ligne, colonne, ligneArrive, colonneArrive, stockPiece)
+            return False
 
 
 def fauxDeplacementEchec(ligne, colonne, ligneArrive, colonneArrive):

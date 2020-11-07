@@ -51,14 +51,14 @@ pieceBlanc = [bp, bt, bf, bc, bd, br]
 pieceNoir = [np, nt, nf, nc, nd, nr]
 
 boardCoord = [
-    [nt, "-", "-", "-", nr, "-","-" , nt],
+    [nt, nc, nf, nd, nr, nf, nc, nt],
     [np, np, np, np, np, np, np, np],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
-    ["-", "-", "-", "-", nt, "-", "-", "-"],
-    [bp, bp, bp, bp, bf, bp, bp, bp],
-    [bt, "-", "-", "-", br, "-", "-", bt],
+    ["-", "-", "-", "-", "-", "-", "-", "-"],
+    [bp, bp, bp, bp, bp, bp, bp, bp],
+    [bt, bc, bf, bd, br, bf, bc, bt],
 ]
 
 dictionnaireIndex = {"A": "0", "B": "1", "C": "2", "D": "3", "E": "4", "F": "5", "G": "6", "H": "7"
