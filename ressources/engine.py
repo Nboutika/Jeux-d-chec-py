@@ -52,7 +52,8 @@ def Jeux():
     btDroite = False
     roiBlancJouer = False
     roiNoirJouer = False
-
+    print("Pour jouer utiliser |colonne de la pièce ligne de la pièce|     |colonne d'arrivé ligne d'arrivé|")
+    
     while roiNoir and roiBlanc and egaliteMouvements == True:
         tourjouez = False
         ligne, colonne, ligneArrive, colonneArrive = commande()

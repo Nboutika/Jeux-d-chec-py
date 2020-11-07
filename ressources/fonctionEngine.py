@@ -21,15 +21,13 @@ def commande():
             Valable = False
             while Valable == False:
                 Valable = True
-                print(
-                    "Pour jouer utiliser |ligne de la pièce colonne de la pièce|     |ligne d'arrivé colonne d'arrivé|")
+                print("exemple de coup : b4 h6")
                 coordonnées = input("Jouer votre coup : ").split(" ")
 
-                ligne = int(coordonnées[0][0])-1
-                ligneArrive = int(coordonnées[1][0])-1
-                colonne = int(dictionnaireIndex[coordonnées[0][1].upper()])
-                colonneArrive = int(
-                    dictionnaireIndex[coordonnées[1][1].upper()])
+                ligne = int(coordonnées[0][1])-1
+                ligneArrive = int(coordonnées[1][1])-1
+                colonne = int(dictionnaireIndex[coordonnées[0][0].upper()])
+                colonneArrive = int(dictionnaireIndex[coordonnées[1][0].upper()])
                 if (ligne < 0) or (ligne > 7) or (ligneArrive < 0) or (ligneArrive > 7):
                     Valable = False
                     print("les lignes du plateau ne vont que de 1 à 8 ")
@@ -42,11 +40,11 @@ def commande():
             Valable = False
 
         except ValueError:
-            print("Voici un exemple de coup valide : 4c 6d")
+            print("Voici un exemple de coup valide : c4 d6")
             Valable = False
 
         except KeyError:
-            print("Voici un exemple de coup valide : 1a 3a")
+            print("Voici un exemple de coup valide : a1 a5")
             Valable = False
 
 
