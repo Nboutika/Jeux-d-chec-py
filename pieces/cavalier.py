@@ -3,7 +3,7 @@ from ressources.board import boardCoord, pieceBlanc, pieceNoir
 from ressources.boardlimit import boardlimit
 
 
-def cavalier(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
+def cavalier(boardCoord, ligne, colonne, couleur):
     legalmoves = []
     if couleur == "n":  # Si le cavalier est noir
         color = pieceBlanc  # il peut manger les pièces blanches
@@ -24,4 +24,4 @@ def cavalier(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
         elif boardlimit(row, column) and boardCoord[row][column] in color:
             legalmoves.append([row, column])  # Le mouvement est possible
     # On renvoie un booléen qui regarde si le déplacement du joueur est possible
-    return [ligneArrive, colonneArrive] in legalmoves
+    return legalmoves

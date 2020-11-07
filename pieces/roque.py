@@ -2,6 +2,7 @@ from ressources.vide import vide
 from ressources.boardlimit import boardlimit
 from ressources.board import boardCoord, pieceBlanc, pieceNoir
 
+
 def roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
 
     legalmoves = []

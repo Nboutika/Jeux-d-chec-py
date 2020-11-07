@@ -3,7 +3,7 @@ from ressources.board import boardCoord, pieceBlanc, pieceNoir
 from ressources.boardlimit import boardlimit
 
 
-def fou(boardCoord,  ligne, colonne, ligneArrive, colonneArrive, couleur):
+def fou(boardCoord,  ligne, colonne, couleur):
     legalmoves = []
     if couleur == "n":  # si la couleur est noir
         color = pieceBlanc  # les adversaires sont blancs
@@ -30,4 +30,4 @@ def fou(boardCoord,  ligne, colonne, ligneArrive, colonneArrive, couleur):
                     legalmoves.append([row, column])
                 break  # on stop la boucle infinie car on ne peut sauter au dessus des pièces
     # on renvoie si le mouvement du joueur est possible
-    return [ligneArrive, colonneArrive] in legalmoves
+    return legalmoves

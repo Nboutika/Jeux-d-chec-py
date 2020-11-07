@@ -3,7 +3,7 @@ from ressources.board import boardCoord, pieceBlanc, pieceNoir
 from ressources.boardlimit import boardlimit
 
 
-def pion(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
+def pion(boardCoord, ligne, colonne, couleur):
     legalmoves = []
     pospion = [ligne, colonne]  # position de départ du pion
     if couleur == "n":  # pion noir
@@ -73,4 +73,4 @@ def pion(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
                 if boardlimit(rowDestroy, columnDestroy) and boardCoord[rowDestroy][columnDestroy] in color:
                     legalmoves.append([rowDestroy, columnDestroy])
     # on renvoie si le mouvement est possible
-    return [ligneArrive, colonneArrive] in legalmoves
+    return legalmoves

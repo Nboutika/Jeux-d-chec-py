@@ -3,7 +3,7 @@ from ressources.board import boardCoord, pieceBlanc, pieceNoir
 from ressources.boardlimit import boardlimit
 
 
-def roi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
+def roi(boardCoord, ligne, colonne, couleur):
     legalmoves = []
     if couleur == "n":
         color = pieceBlanc
@@ -21,4 +21,4 @@ def roi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
             legalmoves.append([row, column])
         elif boardlimit(row, column) and boardCoord[row][column] in color:
             legalmoves.append([row, column])
-    return [ligneArrive, colonneArrive] in legalmoves
+    return legalmoves

@@ -3,7 +3,7 @@ from ressources.board import boardCoord, pieceBlanc, pieceNoir
 from ressources.boardlimit import boardlimit
 
 
-def dame(boardCoord,  ligne, colonne, ligneArrive, colonneArrive, couleur):
+def dame(boardCoord,  ligne, colonne, couleur):
     legalmoves = []
     if couleur == "n":
         color = pieceBlanc
@@ -24,4 +24,4 @@ def dame(boardCoord,  ligne, colonne, ligneArrive, colonneArrive, couleur):
                 if boardlimit(row, column) and boardCoord[row][column] in color:
                     legalmoves.append([row, column])
                 break
-    return [ligneArrive, colonneArrive] in legalmoves
+    return legalmoves
