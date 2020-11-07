@@ -52,12 +52,12 @@ pieceNoir = [np, nt, nf, nc, nd, nr]
 
 boardCoord = [
     [nt, nc, nf, nd, nr, nf, nc, nt],
-    [np, np, np, np, bt, np, np, np],
+    [np, np, np, np, np, np, np, np],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
-    ["-", "-", "-", "-", "-", "-", "-", "-"],
-    [bp, bp, bp, bp, nt, bp, bp, bp],
+    ["-", "-", "-", "-", nt, "-", "-", "-"],
+    [bp, bp, bp, bp, bf, bp, bp, bp],
     [bt, bc, bf, bd, br, bf, bc, bt],
 ]
 
