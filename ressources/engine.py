@@ -101,10 +101,15 @@ def Jeux():
                             if boardCoord[ligne][colonne] == "♚":
                                 if boardCoord[ligneArrive][colonneArrive] =="♜" and roiNoirJouer == False :
                                     roqueCouleur=1
-                                    if roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive) :                                                                      
-                                        coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                                        tourjouez = True
-                                        roiNoirJouer = True
+                                    if (colonneArrive == 7 and ntDroite == False) or (colonneArrive == 0 and ntGauche == False):
+                                        if roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive) :                                                                                  
+                                            coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                            tourjouez = True
+                                            roiNoirJouer = True
+                                        else : 
+                                            print("Le roque n'est pas possible avec ses conditions")
+                                    else : 
+                                        print("La tour a déjà été jouée dans la partie")
                                 else:
                                     if [ligneArrive, colonneArrive] in roi(boardCoord, ligne, colonne,  "n"):
                                         coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
@@ -154,10 +159,15 @@ def Jeux():
                             if boardCoord[ligne][colonne] == "♔":
                                 if boardCoord[ligneArrive][colonneArrive] =="♖" and roiBlancJouer == False:
                                     roqueCouleur=0
-                                    if roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive) :                                                                      
-                                        coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                                        tourjouez = True
-                                        roiBlancJouer = True
+                                    if (colonneArrive == 7 and btDroite == False) or (colonneArrive == 0 and btGauche == False):
+                                        if roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive) :             
+                                            coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                            tourjouez = True
+                                            roiBlancJouer = True
+                                        else :
+                                            print("le roque n'est pas possible avec ses conditions")
+                                    else :  
+                                        print("La tour a déjà été jouée dans la partie")
                                 else :
                                     if [ligneArrive, colonneArrive] in roi(boardCoord, ligne, colonne,  "b"):
                                         coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
