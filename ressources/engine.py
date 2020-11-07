@@ -8,6 +8,7 @@ from pieces.dame import dame
 from pieces.pion import pion
 from ressources.echec import Echec, coordRoi, coupPossible
 from ressources.egalite import egalite
+from ressources.coupEchec import coupEchec
 """
 ----------------------------------------------------------------
 Trame du jeu, définit le rythme de la partie  il contient :
@@ -70,107 +71,113 @@ def Jeux():
                 noir, blanc = couleurJouez(ligne, colonne)
 
                 if noir == True and nombredetour % 2 == 1:
-                    if boardCoord[ligne][colonne] == "♟︎":
-                        if [ligneArrive, colonneArrive] in pion(boardCoord, ligne, colonne, "n") :
-                            coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                        else:
-                            print(
-                                "Le pion noir  ne peut pas se déplacer comme ça, veuillez faire un autre coup")
-
-                    if boardCoord[ligne][colonne] == "♜":
-                        if [ligneArrive, colonneArrive] in tour(boardCoord, ligne, colonne, "n"):
-                            coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                        else:
-                            print(
-                                "La tour ne peut pas se déplacer comme ça, veuillez faire un autre coup")
-
-                    if boardCoord[ligne][colonne] == "♞":
-                        if [ligneArrive, colonneArrive] in cavalier(boardCoord, ligne, colonne, "n"):
-                            coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                        else:
-                            print(
-                                "Le cavalier ne peut pas se déplacer comme ça, veuillez faire un autre coup")
-
-                    if boardCoord[ligne][colonne] == "♝":
-                        if [ligneArrive, colonneArrive] in fou(boardCoord, ligne, colonne, "n"):
-                            coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                        else:
-                            print(
-                                "Le fou ne peut pas se déplacer comme ça, veuillez faire un autre coup")
-
-                    if boardCoord[ligne][colonne] == "♚":
-                        if boardCoord[ligneArrive][colonneArrive] =="♜" and roiNoirJouer == False :
-                            roqueCouleur=1
-                            if roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive) :                                                                      
-                                coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                                tourjouez = True
-                                roiNoirJouer = True
-                        else:
-                            if [ligneArrive, colonneArrive] in roi(boardCoord, ligne, colonne,  "n"):
-                                coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                                roiNoirJouer = True
-                            else:
-                                print(
-                                    "Le roi ne peut pas se déplacer comme ça, veuillez faire un autre coup")
-
-                    if boardCoord[ligne][colonne] == "♛":
-                        if [ligneArrive, colonneArrive] in dame(boardCoord, ligne, colonne, "n"):
-                            coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                        else:
-                            print(
-                                "La reine ne peut pas se déplacer comme ça, veuillez faire un autre coup")
-
-                else:
-                    if blanc == True and nombredetour % 2 == 0:
-                        if boardCoord[ligne][colonne] == "♙":
-                            if [ligneArrive, colonneArrive] in pion(boardCoord, ligne, colonne, "b"):
-                                coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                            else:
-                                print(
-                                    "Le pion blanc ne peut pas se déplacer comme ça, veuillez faire un autre coup")
-
-                        if boardCoord[ligne][colonne] == "♖":
-                            if [ligneArrive, colonneArrive] in tour(boardCoord, ligne, colonne, "b"):
-                                coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                            else:
-                                print(
-                                    "La tour ne peut pas se déplacer comme ça, veuillez faire un autre coup")
-
-                        if boardCoord[ligne][colonne] == "♘":
-                            if [ligneArrive, colonneArrive] in cavalier(boardCoord, ligne, colonne,  "b"):
-                                coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                            else:
-                                print(
-                                    "Le cavalier ne peut pas se déplacer comme ça, veuillez faire un autre coup")
-
-                        if boardCoord[ligne][colonne] == "♗":
-                            if [ligneArrive, colonneArrive] in fou(boardCoord, ligne, colonne,  "b"):
-                                coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                            else:
-                                print(
-                                    "Le fou ne peut pas se déplacer comme ça, veuillez faire un autre coup")
-
-                        if boardCoord[ligne][colonne] == "♔":
-                            if boardCoord[ligneArrive][colonneArrive] =="♖" and roiBlancJouer == False:
-                                roqueCouleur=0
-                                if roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive) :                                                                      
-                                    coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                                    tourjouez = True
-                                    roiBlancJouer = True
-                            else :
-                                if [ligneArrive, colonneArrive] in roi(boardCoord, ligne, colonne,  "b"):
-                                    coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                                    roiBlancJouer = True
+                    if Echec("n"):  
+                        if coupEchec(ligne, colonne, ligneArrive, colonneArrive, "n"):
+                            if boardCoord[ligne][colonne] == "♟︎":
+                                if [ligneArrive, colonneArrive] in pion(boardCoord, ligne, colonne, "n") :
+                                    coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                                 else:
                                     print(
-                                        "Le roi ne peut pas se déplacer comme ça, veuillez faire un autre coup")
+                                        "Le pion noir  ne peut pas se déplacer comme ça, veuillez faire un autre coup")
 
-                        if boardCoord[ligne][colonne] == "♕":
-                            if [ligneArrive, colonneArrive] in dame(boardCoord, ligne, colonne, "b"):
-                                coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
-                            else:
-                                print(
-                                    "La reine ne peut pas se déplacer comme ça, veuillez faire un autre coup")
+                            if boardCoord[ligne][colonne] == "♜":
+                                if [ligneArrive, colonneArrive] in tour(boardCoord, ligne, colonne, "n"):
+                                    coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                else:
+                                    print(
+                                        "La tour ne peut pas se déplacer comme ça, veuillez faire un autre coup")
+
+                            if boardCoord[ligne][colonne] == "♞":
+                                if [ligneArrive, colonneArrive] in cavalier(boardCoord, ligne, colonne, "n"):
+                                    coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                else:
+                                    print(
+                                        "Le cavalier ne peut pas se déplacer comme ça, veuillez faire un autre coup")
+
+                            if boardCoord[ligne][colonne] == "♝":
+                                if [ligneArrive, colonneArrive] in fou(boardCoord, ligne, colonne, "n"):
+                                    coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                else:
+                                    print(
+                                        "Le fou ne peut pas se déplacer comme ça, veuillez faire un autre coup")
+
+                            if boardCoord[ligne][colonne] == "♚":
+                                if boardCoord[ligneArrive][colonneArrive] =="♜" and roiNoirJouer == False :
+                                    roqueCouleur=1
+                                    if roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive) :                                                                      
+                                        coupJouerTripleNoir = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                        tourjouez = True
+                                        roiNoirJouer = True
+                                else:
+                                    if [ligneArrive, colonneArrive] in roi(boardCoord, ligne, colonne,  "n"):
+                                        coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                        roiNoirJouer = True
+                                    else:
+                                        print(
+                                            "Le roi ne peut pas se déplacer comme ça, veuillez faire un autre coup")
+
+                            if boardCoord[ligne][colonne] == "♛":
+                                if [ligneArrive, colonneArrive] in dame(boardCoord, ligne, colonne, "n"):
+                                    coupJouerTripleNoir, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                else:
+                                    print(
+                                        "La reine ne peut pas se déplacer comme ça, veuillez faire un autre coup")
+                        else :
+                            print("Le coup doit vous faire sortir de l'échec ")
+                else:
+                    if blanc == True and nombredetour % 2 == 0:
+                        if Echec("b"):  
+                            if coupEchec(ligne, colonne, ligneArrive, colonneArrive, "b"):
+                                if boardCoord[ligne][colonne] == "♙":
+                                    if [ligneArrive, colonneArrive] in pion(boardCoord, ligne, colonne, "b"):
+                                        coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                    else:
+                                        print(
+                                            "Le pion blanc ne peut pas se déplacer comme ça, veuillez faire un autre coup")
+
+                                if boardCoord[ligne][colonne] == "♖":
+                                    if [ligneArrive, colonneArrive] in tour(boardCoord, ligne, colonne, "b"):
+                                        coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                    else:
+                                        print(
+                                            "La tour ne peut pas se déplacer comme ça, veuillez faire un autre coup")
+
+                                if boardCoord[ligne][colonne] == "♘":
+                                    if [ligneArrive, colonneArrive] in cavalier(boardCoord, ligne, colonne,  "b"):
+                                        coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                    else:
+                                        print(
+                                            "Le cavalier ne peut pas se déplacer comme ça, veuillez faire un autre coup")
+
+                                if boardCoord[ligne][colonne] == "♗":
+                                    if [ligneArrive, colonneArrive] in fou(boardCoord, ligne, colonne,  "b"):
+                                        coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                    else:
+                                        print(
+                                            "Le fou ne peut pas se déplacer comme ça, veuillez faire un autre coup")
+
+                                if boardCoord[ligne][colonne] == "♔":
+                                    if boardCoord[ligneArrive][colonneArrive] =="♖" and roiBlancJouer == False:
+                                        roqueCouleur=0
+                                        if roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive) :                                                                      
+                                            coupJouerTripleBlanc = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                            tourjouez = True
+                                            roiBlancJouer = True
+                                    else :
+                                        if [ligneArrive, colonneArrive] in roi(boardCoord, ligne, colonne,  "b"):
+                                            coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                            roiBlancJouer = True
+                                        else:
+                                            print(
+                                                "Le roi ne peut pas se déplacer comme ça, veuillez faire un autre coup")
+
+                                if boardCoord[ligne][colonne] == "♕":
+                                    if [ligneArrive, colonneArrive] in dame(boardCoord, ligne, colonne, "b"):
+                                        coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+                                    else:
+                                        print("La reine ne peut pas se déplacer comme ça, veuillez faire un autre coup")
+                            else : 
+                                print("Le coup doit vous faire sortir de l'échec")
 
                 if tourjouez == True:
                     nombredetour = nombredetour+1
