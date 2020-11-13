@@ -18,7 +18,8 @@ def coordRoi(color):
                 return [x, y]
 
 
-def coupPossibles(color):
+def coupPossible(color):
+    Coups = []
     if color == "n":
         color = "b"
         for ligne in range(8):
@@ -26,31 +27,25 @@ def coupPossibles(color):
                 if boardCoord[ligne][colonne] in pieceBlanc:
                     if boardCoord[ligne][colonne] == b.bp:
                         for coup in (pion(boardCoord, ligne, colonne, color)):
-                            if coordRoi("n") == coup:
-                                return True, [ligne, colonne]
+                            Coups.append(coup)
                     elif boardCoord[ligne][colonne] == b.bt:
                         for coup in (tour(boardCoord, ligne, colonne, color)):
-                            if coordRoi("n") == coup:
-                                return True, [ligne, colonne]
+                            Coups.append(coup)
                     elif boardCoord[ligne][colonne] == b.bf:
                         for coup in (fou(boardCoord, ligne, colonne, color)):
-                            if coordRoi("n") == coup:
-                                return True, [ligne, colonne]
+                            Coups.append(coup)
                     elif boardCoord[ligne][colonne] == b.bc:
                         for coup in (
                                 cavalier(boardCoord, ligne, colonne, color)):
-                            if coordRoi("n") == coup:
-                                return True, [ligne, colonne]
+                            Coups.append(coup)
                     elif boardCoord[ligne][colonne] == b.bd:
                         for coup in (dame(boardCoord, ligne, colonne, color)):
-                            if coordRoi("n") == coup:
-                                return True, [ligne, colonne]
+                            Coups.append(coup)
 
                     elif boardCoord[ligne][colonne] == b.br:
                         for coup in (roi(boardCoord, ligne, colonne, color)):
-                            if coordRoi("n") == coup:
-                                return True, [ligne, colonne]
-        return False, []
+                            Coups.append(coup)
+        return Coups
 
     elif color == "b":
         color = "n"
@@ -59,34 +54,31 @@ def coupPossibles(color):
                 if boardCoord[ligne][colonne] in pieceNoir:
                     if boardCoord[ligne][colonne] == b.np:
                         for coup in (pion(boardCoord, ligne, colonne, color)):
-                            if coordRoi("b") == coup:
-                                return True, [ligne, colonne]
+                            Coups.append(coup)
                     elif boardCoord[ligne][colonne] == b.nt:
                         for coup in (tour(boardCoord, ligne, colonne, color)):
-                            if coordRoi("b") == coup:
-                                return True, [ligne, colonne]
+                            Coups.append(coup)
                     elif boardCoord[ligne][colonne] == b.nf:
                         for coup in (fou(boardCoord, ligne, colonne, color)):
-                            if coordRoi("b") == coup:
-                                return True, [ligne, colonne]
+                            Coups.append(coup)
                     elif boardCoord[ligne][colonne] == b.nc:
-                        if coordRoi("b") == coup:
-                            return True, [ligne, colonne]
                         for coup in (
                                 cavalier(boardCoord, ligne, colonne, color)):
-                            if coordRoi("b") == coup:
-                                return True, [ligne, colonne]
+                            Coups.append(coup)
                     elif boardCoord[ligne][colonne] == b.nd:
                         for coup in (dame(boardCoord, ligne, colonne, color)):
-                            if coordRoi("b") == coup:
-                                return True, [ligne, colonne]
+                            Coups.append(coup)
                     elif boardCoord[ligne][colonne] == b.nr:
                         for coup in (roi(boardCoord, ligne, colonne, color)):
-                            if coordRoi("b") == coup:
-                                return True, [ligne, colonne]
-        return False, []
+                            Coups.append(coup)
+        return Coups
 
 
 def Echec(color):
-    bool, table = coupPossibles(color)
-    return bool
+    if coordRoi(color) in coupPossible(color):
+        return True
+    else:
+        return False
+
+
+print(Echec("n"))

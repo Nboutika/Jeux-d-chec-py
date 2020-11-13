@@ -25,6 +25,3 @@ def dame(boardCoord,  ligne, colonne, couleur):
                     legalmoves.append([row, column])
                 break
     return legalmoves
-
-
-print(dame(boardCoord, 0, 2, "n"))
