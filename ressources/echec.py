@@ -70,8 +70,6 @@ def toutCoupsPossibles(color):
                             if coordRoi("b") == coup:
                                 return True, [ligne, colonne]
                     elif boardCoord[ligne][colonne] == b.nc:
-                        if coordRoi("b") == coup:
-                            return True, [ligne, colonne]
                         for coup in (
                                 cavalier(boardCoord, ligne, colonne, color)):
                             if coordRoi("b") == coup:
