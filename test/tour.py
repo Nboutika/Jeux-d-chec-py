@@ -24,4 +24,3 @@ def tour(boardCoord, ligne, colonne, couleur):
                     legalmoves.append([row, column])
                 break
     return legalmoves
-

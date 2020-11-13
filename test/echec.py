@@ -1,4 +1,3 @@
-
 from board import boardCoord, pieceBlanc, pieceNoir
 import board as b
 from tour import tour
@@ -80,6 +79,3 @@ def Echec(color):
         return True
     else:
         return False
-
-
-print(Echec("b"))
