@@ -177,15 +177,18 @@ def mouvementRoi(color):
 
 def echecmat(color):
     bool, table = toutCoupsPossibles(color)
-    a = piecepath(table, coordRoi(color))
-    b = coupPossible(color)
-    def any_in(a, b): return any(i in b for i in a)
-    if not (any_in(a, b)):
-        if mouvementRoi(color) == []:
-            return True
+    if table:
+        a = piecepath(table, coordRoi(color))
+        b = coupPossible(color)
+        def any_in(a, b): return any(i in b for i in a)
+        if not (any_in(a, b)):
+            if mouvementRoi(color) == []:
+                return True
+            else:
+                return False
         else:
             return False
-    else:
+    if not table:
         return False
 
 
