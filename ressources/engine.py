@@ -9,6 +9,7 @@ from pieces.pion import pion
 from ressources.echec import Echec, coordRoi, toutCoupsPossibles
 from ressources.egalite import egalite
 from ressources.coupEchec import coupEchec
+from ressources.echecmat import echecmat, pat
 """
 ----------------------------------------------------------------
 Trame du jeu, définit le rythme de la partie  il contient :
@@ -209,8 +210,16 @@ def Jeux():
                         print("C'est au noir de jouer ")
                     else:
                         print("C'est au blanc de jouer")
+                        
+            if Echec("n"):
+                roiNoir = not(echecmat("n"))
+            else :
+                roiNoir = not(pat("n"))
 
-            roiBlanc, roiNoir = roiPresent()
+            if Echec("b"):
+                roiBlanc = not(echecmat("b"))
+            else:
+                roiBlanc = not(pat("b"))
 
     if egaliteMouvements == False:
         print("La partie se finit sur égalité, car vous avez répété 3fois les mêmes déplacements")
