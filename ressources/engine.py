@@ -6,7 +6,7 @@ from pieces.roi import roi
 from pieces.cavalier import cavalier
 from pieces.dame import dame
 from pieces.pion import pion
-from ressources.echec import Echec, coordRoi, coupPossible
+from ressources.echec import Echec, coordRoi, toutCoupsPossibles
 from ressources.egalite import egalite
 from ressources.coupEchec import coupEchec
 """

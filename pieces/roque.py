@@ -1,7 +1,7 @@
 from ressources.vide import vide
 from ressources.boardlimit import boardlimit
 from ressources.board import boardCoord, pieceBlanc, pieceNoir
-from ressources.echec import Echec, coupPossible
+from ressources.echec import Echec, toutCoupsPossibles
 
 def roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
 

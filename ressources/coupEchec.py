@@ -1,5 +1,5 @@
 from ressources.board import boardCoord
-from ressources.echec import Echec, coupPossible, coordRoi
+from ressources.echec import Echec, toutCoupsPossibles, coordRoi
 
 def coupEchec(ligne, colonne, ligneArrive, colonneArrive, color):
     if ( boardCoord[ligneArrive][colonneArrive]== "♜" and boardCoord[ligne][colonne] == "♚" ) or ( boardCoord[ligneArrive][colonneArrive]== "♖" and boardCoord[ligne][colonne] == "♔" ) :
