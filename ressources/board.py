@@ -51,9 +51,9 @@ pieceBlanc = [bp, bt, bf, bc, bd, br]
 pieceNoir = [np, nt, nf, nc, nd, nr]
 
 boardCoordInit = [
-    [nt, nc, nf, nd, nr, "-", "-", nt],
-    [np, np, np, np, np, "-", np, np],
-    ["-", "-", "-", "-", "-", bt, "-", "-"],
+    [nt, nc, nf, nd, nr, nf, nc, nt],
+    [np, np, np, np, np, np, np, np],
+    ["-", "-", "-", "-", "-", "-", "-", "-"],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
