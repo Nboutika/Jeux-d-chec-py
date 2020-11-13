@@ -1,12 +1,12 @@
-from board import boardCoord, pieceBlanc, pieceNoir
-import board as b
-from tour import tour
-from fou import fou
-from roi import roi
-from cavalier import cavalier
-from dame import dame
-from pion import pion
-from echec import Echec, coordRoi, coupPossibles
+from ressources.board import boardCoord, pieceBlanc, pieceNoir
+import ressources.board as b
+from pieces.tour import tour
+from pieces.fou import fou
+from pieces.roi import roi
+from pieces.cavalier import cavalier
+from pieces.dame import dame
+from pieces.pion import pion
+from ressources.echec import Echec, coordRoi, toutCoupsPossibles
 
 
 def coupPossible(color):
@@ -176,7 +176,7 @@ def mouvementRoi(color):
 
 
 def echecmat(color):
-    bool, table = coupPossibles(color)
+    bool, table = toutCoupsPossibles(color)
     a = piecepath(table, coordRoi(color))
     b = coupPossible(color)
     def any_in(a, b): return any(i in b for i in a)
