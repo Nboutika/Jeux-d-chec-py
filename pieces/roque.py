@@ -17,7 +17,7 @@ def roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
         while True:
             row = posRoi[0]
             column = posRoi[1] + i * possibilite[1]
-            if boardlimit(row, column) and vide(boardCoord, row, column) and not([row,column] in toutCoupsPossible(couleur)) :
+            if boardlimit(row, column) and vide(boardCoord, row, column) and not([row,column] in toutCoupsPossibles(couleur)) :
                 legalmoves.append([row, column])
                 i += 1
             else:
