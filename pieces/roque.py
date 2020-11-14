@@ -2,6 +2,8 @@ from ressources.vide import vide
 from ressources.boardlimit import boardlimit
 from ressources.board import boardCoord, pieceBlanc, pieceNoir
 from ressources.echec import Echec, toutCoupsPossibles
+from ressources.echecmat import mouvementRoi
+from ressources.coupEchec import fauxDeplacementEchec, fauxDeplacementEchecInverse
 
 
 def roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
@@ -19,8 +21,16 @@ def roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, couleur):
             row = posRoi[0]
             column = posRoi[1] + i * possibilite[1]
             if boardlimit(row, column) and vide(boardCoord, row, column) and not([row, column] in toutCoupsPossibles(couleur)):
-                legalmoves.append([row, column])
-                i += 1
+                stockPiece = fauxDeplacementEchec(ligne, colonne, row, column)
+                if not(Echec(couleur)):
+                    fauxDeplacementEchecInverse(
+                        ligne, colonne, row, column, stockPiece)
+                    legalmoves.append([row, column])
+                    i += 1
+                else:
+                    fauxDeplacementEchecInverse(
+                        ligne, colonne, row, column, stockPiece)
+                    break
             else:
                 if boardlimit(row, column) and (boardCoord[row][column] == color):
                     legalmoves.append([row, column])

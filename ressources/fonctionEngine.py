@@ -1,4 +1,4 @@
-from ressources.board import boardCoord, pieceBlanc, pieceNoir, dictionnaireIndex
+from ressources.board import boardCoord, pieceBlanc, pieceNoir, dictionnaireIndex, affichageBoard
 import ressources.board as boardVariable
 from ressources.egalite import egalite
 from pieces.roque import roqueRoi
@@ -30,6 +30,7 @@ def commande():
                 colonneArrive = int(
                     dictionnaireIndex[coordonnées[1][0].upper()])
                 if (ligne < 0) or (ligne > 7) or (ligneArrive < 0) or (ligneArrive > 7):
+                    affichageBoard()
                     Valable = False
                     print("les lignes du plateau ne vont que de 1 à 8 ")
 
@@ -37,14 +38,17 @@ def commande():
                     return(ligne, colonne, ligneArrive, colonneArrive)
 
         except IndexError:
+            affichageBoard()
             print("Il faut quatre arguments pour jouer et séparer d'un espace les coordonnées de départ et d'arriver")
             Valable = False
 
         except ValueError:
+            affichageBoard()
             print("Voici un exemple de coup valide : c4 d6")
             Valable = False
 
         except KeyError:
+            affichageBoard()
             print("Voici un exemple de coup valide : a1 a5")
             Valable = False
 

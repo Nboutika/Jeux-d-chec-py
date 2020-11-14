@@ -12,7 +12,7 @@ def pion(boardCoord, ligne, colonne, couleur):
         deplacement = [[1, -1], [1, 1]]
         if pospion[0] == 1:  # si le pion est à sa position de départ et donc il peut bouger soit de 1 ou de 2 cases au choix
             i = 1
-            while True:  # Pareil que pour le fou/tour/dame boucle infinie avec un i que l'on va incrémenter
+            while i <= 2:  # Pareil que pour le fou/tour/dame boucle infinie avec un i que l'on va incrémenter
                 # le pion avance uniquement en ligne et pour le pion noir on incrémente de 1
                 row = pospion[0] + i
                 column = pospion[1]  # la colonne ne change pas
@@ -48,7 +48,7 @@ def pion(boardCoord, ligne, colonne, couleur):
         deplacement = [[-1, -1], [-1, 1]]
         if pospion[0] == 6:  # position de départ du pion blanc
             i = -1
-            while True:
+            while i >= -2:
                 # On ajoute des nombres négatifs mais on aurait pu  soustraire des nombres positifs
                 row = pospion[0] + i
                 column = pospion[1]
@@ -74,3 +74,6 @@ def pion(boardCoord, ligne, colonne, couleur):
                     legalmoves.append([rowDestroy, columnDestroy])
     # on renvoie si le mouvement est possible
     return legalmoves
+
+
+

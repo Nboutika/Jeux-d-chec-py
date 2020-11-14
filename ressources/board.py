@@ -50,7 +50,7 @@ historiqueReineN = []
 pieceBlanc = [bp, bt, bf, bc, bd, br]
 pieceNoir = [np, nt, nf, nc, nd, nr]
 
-boardCoord = [
+boardCoordInit = [
     [nt, nc, nf, nd, nr, nf, nc, nt],
     [np, np, np, np, np, np, np, np],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
@@ -61,6 +61,16 @@ boardCoord = [
     [bt, bc, bf, bd, br, bf, bc, bt],
 ]
 
+boardCoord = [
+    [nt, nc, nf, nd, nr, nf, nc, nt],
+    [np, np, np, np, np, np, np, np],
+    ["-", "-", "-", "-", "-", "-", "-", "-"],
+    ["-", "-", "-", "-", "-", "-", "-", "-"],
+    ["-", "-", "-", "-", "-", "-", "-", "-"],
+    ["-", "-", "-", "-", "-", "-", "-", "-"],
+    [bp, bp, bp, bp, bp, bp, bp, bp],
+    [bt, bc, bf, bd, br, bf, bc, bt],
+]
 
 dictionnaireIndex = {"A": "0", "B": "1", "C": "2", "D": "3", "E": "4", "F": "5", "G": "6", "H": "7"
                      }
@@ -78,3 +88,9 @@ def affichageBoard():
 
     print("   A  B  C  D  E  F  G  H")
     print(30*"-")
+
+
+def resetBoard():
+    for l in range(8):
+        for c in range(8):
+            boardCoord[l][c] = boardCoordInit[l][c]
