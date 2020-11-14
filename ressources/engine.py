@@ -45,6 +45,8 @@ Trame du jeu, définit le rythme de la partie  il contient :
 def Jeux():
     roiNoir = True
     roiBlanc = True
+    roiNoirPat = True
+    roiBlancPat = True
     egaliteMouvements = True
     noir = False
     coupJouerTripleNoir=False
@@ -57,7 +59,7 @@ def Jeux():
     roiNoirJouer = False
     print("Pour jouer utiliser |colonne de la pièce ligne de la pièce|     |colonne d'arrivé ligne d'arrivé|")
 
-    while roiNoir and roiBlanc and egaliteMouvements == True:
+    while roiNoir and roiBlanc and egaliteMouvements and roiNoirPat and roiBlancPat == True:
         tourjouez = False
         ligne, colonne, ligneArrive, colonneArrive = commande()
         pieceJouer=boardCoord[ligne][colonne]
@@ -161,7 +163,8 @@ def Jeux():
                                     coupJouerTripleBlanc, tourjouez = coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
                                 else :
                                     print( affichagePiece + " ne peut se déplacer comme ça, veuillez faire un autre coup")
-                            
+                        else :
+                            print("Vous ne pouvez pas être en echec a la fin de votre tour ")  
                                 
                 if tourjouez == True:
                     if Echec("n"): print("Le roi noir est en échec")
@@ -193,18 +196,27 @@ def Jeux():
             if Echec("n"):
                 roiNoir = not(echecmat("n"))
             else :
-                roiNoir = not(pat("n"))
+                if nombredetour % 2 == 1 :
+                    roiNoirPat = not(pat("n"))
 
             if Echec("b"):
                 roiBlanc = not(echecmat("b"))
             else:
-                roiBlanc = not(pat("b"))
+                if nombredetour % 2 == 0 :
+                    roiBlancPat = not(pat("b"))
 
     if egaliteMouvements == False:
         print("La partie se finit sur égalité, car vous avez répété 3fois les mêmes déplacements")
     else:
-        if roiNoir == False:
-            print("Le joueur blanc a gagné")
-        else:
-            print("Le joueur noir a gagné")
-        print("Vous avez gagné en ", nombredetour, " tours")
+        if roiBlancPat == False :
+            print("La partie se finit sur égalité car le joueur blanc est en pat.")
+        
+        elif roiNoirPat == False :
+            print("La partie se finit sur égalité car le joueur noir est en pat.")        
+        
+        else :
+            if roiNoir == False:
+                print("Le joueur blanc a gagné")
+            else:
+                print("Le joueur noir a gagné")
+            print("Vous avez gagné en ", nombredetour, " tours")
