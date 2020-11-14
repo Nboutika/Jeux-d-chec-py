@@ -184,6 +184,7 @@ def Jeux():
                             ntDroite = True 
                     
                 else:
+                    affichageBoard()
                     if nombredetour % 2 == 1:
                         print("C'est au noir de jouer ")
                     else:

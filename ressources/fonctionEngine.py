@@ -1,4 +1,4 @@
-from ressources.board import boardCoord, pieceBlanc, pieceNoir, dictionnaireIndex
+from ressources.board import boardCoord, pieceBlanc, pieceNoir, dictionnaireIndex, affichageBoard
 import ressources.board as boardVariable
 from ressources.egalite import egalite
 from pieces.roque import roqueRoi
@@ -38,14 +38,17 @@ def commande():
         except IndexError:
             print("Il faut quatre arguments pour jouer et séparer d'un espace les coordonnées de départ et d'arriver")
             Valable = False
+            affichageBoard()
 
         except ValueError:
             print("Voici un exemple de coup valide : c4 d6")
             Valable = False
+            affichageBoard()
 
         except KeyError:
             print("Voici un exemple de coup valide : a1 a5")
             Valable = False
+            affichageBoard()
 
 
 def roiPresent():
