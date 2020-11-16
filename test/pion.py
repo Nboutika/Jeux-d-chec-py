@@ -1,6 +1,6 @@
-from ressources.vide import vide
-from ressources.board import boardCoord, pieceBlanc, pieceNoir
-from ressources.boardlimit import boardlimit
+from vide import vide
+from board import boardCoord, pieceBlanc, pieceNoir
+from boardlimit import boardlimit
 
 
 def pion(boardCoord, ligne, colonne, couleur):
@@ -48,7 +48,7 @@ def pion(boardCoord, ligne, colonne, couleur):
         deplacement = [[-1, -1], [-1, 1]]
         if pospion[0] == 6:  # position de départ du pion blanc
             i = -1
-            while i >= -2:
+            while i >= 2:
                 # On ajoute des nombres négatifs mais on aurait pu  soustraire des nombres positifs
                 row = pospion[0] + i
                 column = pospion[1]
