@@ -65,11 +65,12 @@ def Jeux():
         pieceJouer=boardCoord[ligne][colonne]
 
         if boardCoord[ligne][colonne] == "-":
+            affichageBoard()
             print("la position donnée ne contient aucune pièce")
         else:
             if ligne == ligneArrive and colonne == colonneArrive:
-                print(
-                    "la position de départ ne peut pas être la même que celle d'arrivée")
+                affichageBoard()
+                print("la position de départ ne peut pas être la même que celle d'arrivée")
             else:
                 noir, blanc = couleurJouez(ligne, colonne)
                 fonction = None
