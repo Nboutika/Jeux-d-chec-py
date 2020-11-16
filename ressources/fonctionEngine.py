@@ -47,6 +47,7 @@ def commande():
             Valable = False
             affichageBoard()
 
+
 #Fonction qui permet de récupérer la couleur de la pièce sélectionnée et d'afficher la pièce
 def couleurJouez(ligne, colonne):
     blanc = False

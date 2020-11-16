@@ -29,3 +29,4 @@ Pour faire le **roque** il faut sélectionner le **roi** en première position e
 
 On ne peut pas relancer de partie tant que celle-ci n'est pas fini
 
+
