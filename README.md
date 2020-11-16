@@ -23,7 +23,8 @@ La syntaxe est la suivante : **|colonne de la pièce ligne de la pièce| |colonn
 |exemples||||
 |---|---|---|---|
 |a2 h4|b4 a6|h8 a1| f5 h6|
-|---|---|---|---|
+
+
 Pour faire le **roque** il faut sélectionner le **roi** en première position et la **tour** souhaitée en position d'arriver
 
 On ne peut pas relancer de partie tant que celle-ci n'est pas fini
