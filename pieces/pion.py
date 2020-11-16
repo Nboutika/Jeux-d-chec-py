@@ -74,6 +74,3 @@ def pion(boardCoord, ligne, colonne, couleur):
                     legalmoves.append([rowDestroy, columnDestroy])
     # on renvoie si le mouvement est possible
     return legalmoves
-
-
-
