@@ -27,8 +27,12 @@ def commande():
                 ligne = int(coordonnées[0][1])-1
                 ligneArrive = int(coordonnées[1][1])-1
                 colonne = int(dictionnaireIndex[coordonnées[0][0].upper()])
+<<<<<<< HEAD
                 colonneArrive = int(
                     dictionnaireIndex[coordonnées[1][0].upper()])
+=======
+                colonneArrive = int(dictionnaireIndex[coordonnées[1][0].upper()])
+>>>>>>> 0f8ae819259a121193218e38187ea10e58cc0fb5
                 if (ligne < 0) or (ligne > 7) or (ligneArrive < 0) or (ligneArrive > 7):
                     affichageBoard()
                     Valable = False
@@ -41,16 +45,27 @@ def commande():
             affichageBoard()
             print("Il faut quatre arguments pour jouer et séparer d'un espace les coordonnées de départ et d'arriver")
             Valable = False
+            affichageBoard()
 
         except ValueError:
+<<<<<<< HEAD
             affichageBoard()
+=======
+>>>>>>> 0f8ae819259a121193218e38187ea10e58cc0fb5
             print("Voici un exemple de coup valide : c4 d6")
             Valable = False
+            affichageBoard()
 
         except KeyError:
+<<<<<<< HEAD
             affichageBoard()
             print("Voici un exemple de coup valide : a1 a5")
             Valable = False
+=======
+            print("Voici un exemple de coup valide : a1 a5")
+            Valable = False
+            affichageBoard()
+>>>>>>> 0f8ae819259a121193218e38187ea10e58cc0fb5
 
 
 def roiPresent():
@@ -84,59 +99,57 @@ def Deplacement(ligne, colonne, ligneArrive, colonneArrive):
     boardCoord[ligneArrive][colonneArrive] = boardCoord[ligne][colonne]
     boardCoord[ligne][colonne] = "-"
 
-
 def pionConvertir():
     for colonnePlateau in range(8):
-        if boardCoord[0][colonnePlateau] == boardVariable.bp:
+        if boardCoord[0][colonnePlateau] == boardVariable.bp :
             boardCoord[0][colonnePlateau] = boardVariable.bd
-        if boardCoord[7][colonnePlateau] == boardVariable.np:
+        if boardCoord[7][colonnePlateau] == boardVariable.np :
             boardCoord[7][colonnePlateau] = boardVariable.nd
 
 
-def roque(roqueCouleur, ligne, colonne, ligneArrive, colonneArrive):
-    roqueFait = False
-    if roqueCouleur == 1:  # Roque noir
+def roque(roqueCouleur,ligne, colonne,ligneArrive, colonneArrive):
+    roqueFait=False
+    if roqueCouleur == 1:     #Roque noir
         if colonneArrive == 0:
             if roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
                 boardCoord[ligneArrive][3] = boardCoord[ligneArrive][colonneArrive]
                 boardCoord[ligne][2] = boardCoord[ligne][colonne]
-                roqueFait = True
+                roqueFait=True
                 print("Vous avez fait le grand roque")
         else:
             if colonneArrive == 7:
                 if roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "n"):
                     boardCoord[ligneArrive][5] = boardCoord[ligneArrive][colonneArrive]
                     boardCoord[ligne][6] = boardCoord[ligne][colonne]
-                    roqueFait = True
+                    roqueFait=True
                     print("Vous avez fait le petit roque")
-    else:  # Roque blanc
+    else :                  #Roque blanc 
         if colonneArrive == 0:
             if roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                 boardCoord[ligneArrive][3] = boardCoord[ligneArrive][colonneArrive]
                 boardCoord[ligne][2] = boardCoord[ligne][colonne]
-                roqueFait = True
+                roqueFait=True
                 print("Vous avez fait le grand roque")
         else:
             if colonneArrive == 7:
                 if roqueRoi(boardCoord, ligne, colonne, ligneArrive, colonneArrive, "b"):
                     boardCoord[ligneArrive][5] = boardCoord[ligneArrive][colonneArrive]
                     boardCoord[ligne][6] = boardCoord[ligne][colonne]
-                    roqueFait = True
+                    roqueFait=True
                     print("Vous avez fait le petit roque")
 
     if roqueFait == True:
         boardCoord[ligne][colonne] = "-"
         boardCoord[ligneArrive][colonneArrive] = "-"
         return True
-    else:
+    else :
         print("Le roque n'est pas possible ")
         return False
 
-
-def coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
+def coupJouer(ligne, colonne, ligneArrive, colonneArrive, pieceJouer): 
     Deplacement(ligne, colonne,
                 ligneArrive, colonneArrive)
-    coupJouerTriple = egalite(
-        ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
+    coupJouerTriple = egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer)
     tourjouez = True
     return(coupJouerTriple, tourjouez)
+
