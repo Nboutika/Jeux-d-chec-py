@@ -1,3 +1,4 @@
+/!\ Le Cavalier et le fou sont commentés pour montrer ce qui est dis ci-dessous /!\
 Toutes les pièces suivent à peu près le même paterne :
 
 Tout d'abord on prend en paramètre :

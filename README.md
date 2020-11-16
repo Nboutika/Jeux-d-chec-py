@@ -1,15 +1,14 @@
-Jeux d'échec en Python de BOUTIKAR Nassim et ARIES Lucas.
+# Premier Projet Python - ARIES Lucas / BOUTIKAR Nassim
 
-board.py sera le plateau  
-main.py sera le programme principale
+On vous présente ici notre **premier** projet en python, ce n'est pas le plus optimisé, on a essayé d'optimiser le plus possible mais nous n'avons pas vu les classes et c'est une difficulté supplémentaire surtout pour un jeu d'échec et surtout notre premier projet en python et en programmation en général.
 
-Plateau 8\*8 de dimension  
-pion avance de 1 et mange sur les diagonales de 1  
-tour se déplace horizontalement et verticalement sur tout le plateau  
-fou sur ses diagonales  
-cavalier avance en L (2,1)  
-roi = tour+fou mais limité a 1  
-reine = tour+fou  
-Les pions ne peuvent passer au dessus des autres pions
+## Les règles :
 
-Deux équipes Blanc Noir se joue tour par tour
+Règles basiques des échecs, ici dans ce jeu nous avons implémenté : Le pion qui peut se déplacer d'une, ou de deux cases lorsqu'il n'a jamais été joué, ensuite nous avons également le **roque** qui est fonctionnel, la **promotion** du pion en dame automatique, le système d'échec, vous ne pourrez pas jouer un coup qui vous mettrais en échec, l'échec et mat également, on a le pat lorsque aucun mouvement n'est possible ainsi que le pat lorsque les deux joueurs jouent successivement 3 fois le même coup, et les tours des joueurs sont bien évidemment respectés.
+Les pièces ne sautent pas au dessus des autres pièces (sauf le cavalier) On a donc plus qu'assez de fonctionnalité pour jouer une bonne partie d'échec avec ses amis
+
+## Ce que nous n'avons pas eu le temps d'ajouter
+
+Actuellement, le jeu d'échec n'a pas de système de "en passant" malheureusement, on ne peut jouer qu'à deux et non pas contre une IA qui vous vous en doutez bien est au dessus de nos compétences déjà que l'on utilise pas de classe, de plus ce projet est le premier en python mais nous ne feront plus de python il n'est donc pas nécessaire d'approfondir énormément sachant que le langage principal à l'IUT est le Java
+
+## Règles

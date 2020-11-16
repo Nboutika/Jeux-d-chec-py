@@ -7,6 +7,8 @@ from pieces.cavalier import cavalier
 from pieces.dame import dame
 from pieces.pion import pion
 
+# on test toutes les cases de l'échiquier jusqu'à trouver le roi
+
 
 def coordRoi(color):
     for x in range(8):
@@ -18,11 +20,15 @@ def coordRoi(color):
                 return [x, y]
 
 
+# On récupère tous les coups possibles de l'adversaire pour savoir si le roi est en échec
 def toutCoupsPossibles(color):
-    if color == "n":
-        color = "b"
+    if color == "n":  # Pour le roi noir
+        color = "b"  # on prend les coups possibles des pièces blanches
         for ligne in range(8):
             for colonne in range(8):
+                # Si la pièce est blanche (définie dans le board)
+                # Pour chaque pièce on regarde si le roi est capturable, si oui on renvoie vrai (échec) et les
+                # coordonnées de la pièce qui met en échec(utile pour le mat)
                 if boardCoord[ligne][colonne] in pieceBlanc:
                     if boardCoord[ligne][colonne] == b.bp:
                         for coup in (pion(boardCoord, ligne, colonne, color)):
@@ -50,9 +56,10 @@ def toutCoupsPossibles(color):
                         for coup in (roi(boardCoord, ligne, colonne, color)):
                             if coordRoi("n") == coup:
                                 return True, [ligne, colonne]
+        # Si aucune pièce ne peut capturer le roi alors le roi n'est pas en échec (et tableau vide car aucune pièce)
         return False, []
 
-    elif color == "b":
+    elif color == "b":  # Pareil mais pour les blancs
         color = "n"
         for ligne in range(8):
             for colonne in range(8):
@@ -85,6 +92,8 @@ def toutCoupsPossibles(color):
         return False, []
 
 
+# Je passe par une fonction intermédiaire car je renvoie un booléen et un tableau, cependant uniquement le booléen m'intéresse ici
 def Echec(color):
+    # table renvoie les coordonnées de la pièce qui attaque, inutile pour notre fonction d'échec
     bool, table = toutCoupsPossibles(color)
     return bool
