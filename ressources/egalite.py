@@ -1,5 +1,18 @@
 from ressources.board import *
 
+"""
+----------------------------------------------------------------
+On a 3 fonctions qui marchent ensemble 
+clearTableauB va remettre a 0 tout les historique en tableau des pièces blanche sauf celle passé en argument
+clearTableauN va faire pareil mais pour les noir 
+
+egalite et la fonction principale qui renvoie un boolean qui dis si oui ou non la couleur a fait 3 fois le même mouvements
+les pions ne peuvent pas répeter leur mouvement ils n'ont donc pas d'historique ce qui permet de gagner un peu de mémoire 
+on a besoin de garder que les coup de la dernière pièce jouer on peut donc effacer tout les autres tableau pour garder de la mémoire 
+l'algo est le même pour toute les pièces execption au pion
+----------------------------------------------------------------
+"""
+
 def clearTableauB(historiquexB):
     if historiquexB != "historiqueTourB" : historiqueTourB.clear()
     if historiquexB != "historiqueCavalierB" : historiqueCavalierB.clear()
@@ -22,20 +35,21 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
     if pieceJouer in pieceBlanc :    #correspond aux blancs
         if pieceJouer ==bp: #correspond au pion blanc 
 
-            coupJouerTripleBlanc = clearTableauB("all")
+            coupJouerTripleBlanc = clearTableauB("all") #on nettoie tout les historique blanc
 
         if pieceJouer ==bt:  #correspond a la tour blanche
 
-            historiqueTourB.extend([ligne, colonne, ligneArrive, colonneArrive])
-            coupJouerTripleBlanc = clearTableauB("historiqueTourB")
-
-            if len(historiqueTourB)> 24 :
+            historiqueTourB.extend([ligne, colonne, ligneArrive, colonneArrive]) #On ajoute a l'hitorique le coup fait 
+            coupJouerTripleBlanc = clearTableauB("historiqueTourB") 
+                #on nettoie tout les autres historique vu que la règle spécifie la même pièces on fait donc un gain de mémoire
+            if len(historiqueTourB)> 24 : #Si la tour a déjà plus de 6 coup enregistrer on supprimer le plus ancien   
                 historiqueTourB[:4]=[]
 
-            if len(historiqueTourB) == 24 :
+            if len(historiqueTourB) == 24 : #Si la tour a 6 coup on test si ils sont identique
                 if (historiqueTourB[0]==historiqueTourB[6]==historiqueTourB[8]) and (historiqueTourB[1]==historiqueTourB[7]==historiqueTourB[9]) and (historiqueTourB[2]==historiqueTourB[4]==historiqueTourB[10]) and (historiqueTourB[3]==historiqueTourB[5]==historiqueTourB[11]):
+                    #On a un très long if qui test si les coups correspondent et donnent 3 position identique 
                     coupJouerTripleBlanc=True
-
+            
 
         if pieceJouer ==bc:  #correspond au cavalier blanc 
 
@@ -90,7 +104,7 @@ def egalite(ligne, colonne, ligneArrive, colonneArrive, pieceJouer):
 
         return(coupJouerTripleBlanc)
 
-    else:
+    else: #Même fonctionnement que pour les blanc mais pour la couleur noir 
         if pieceJouer ==np: #correspond au pion bnoir
             coupJouerTripleNoir = clearTableauN("all")
 

@@ -1,15 +1,20 @@
 """
 ----------------------------------------------------------------
 board.py contient:
--La fonction affichageBoard qui permet d'afficher le plateau
--Le plateau avec les pièces en position initiale 
+-Le plateau avec les pièces en position initiale (tableau bidimensionnelles)
+-Le plateau de la partie
 -Les variables des pièces avec leur représentation visuelle
+-Des tableaux qui représente l'hitorique des coups des pièces (pour l'égalité 3 mouvements répètes)
+-Des tableaux qui contienent toutes les pièces d'une couleur 
+-Un dictionnaire pour convertir les index des colonnes 
+-La fonction affichageBoard qui permet d'afficher le plateau
+-La fonction resetBoard qui permet de remettre le plateau avec les pièces en position originale
 ----------------------------------------------------------------
 Utilisation d'unicode pour les pièces (bien vérifier si l'encodage est l'UTF-8)
     
 Représentation des coordonnées du plateau depuis le terminal 
-Dans le programme  les index sont diminués de 1 
-    1  2  3 4 5  6 7  8 
+Dans le programme  les index de ligne sont diminués 1 
+    a  b  c d e  f g  h 
 ---------------------
 1|  ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜
 2|  ♟︎ ♟︎ ♟︎ ♟︎ ♟︎ ♟︎ ♟︎ ♟︎
@@ -62,14 +67,14 @@ boardCoordInit = [
 ]
 
 boardCoord = [
-    ["-", "-", "-", "-", "-", "-", nr, "-"],
+    [nt, nc, nf, nd, nr, nf, nc, nt],
+    [np, np, np, np, np, np, np, np],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
     ["-", "-", "-", "-", "-", "-", "-", "-"],
-    ["-", "-", "-", "-", "-", "-", "-", "-"],
-    ["-", "-", "-", "-", "-", bt, "-", "-"],
-    ["-", "-", "-", "-", br, bt, "-", "-"],
+    [bp, bp, bp, bp, bp, bp, bp, bp],
+    [bt, bc, bf, bd, br, bf, bc, bt],
 ]
 
 
